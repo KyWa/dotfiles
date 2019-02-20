@@ -4,7 +4,7 @@
 
 `tar` doesn't do compression it is an archive tool only. Other programs that compress can be used in line when running it. Common compression programs such as `gzip` and `bzip2` can be used natively. You can string options together instead of multiple `-o` strung together. `tar` will overwrite existing files sharing the same filename. 
 
-Common Options:
+*Common Options:*
         * `-c` --Create archive
         * `-v` --Verbose
         * `-f` --Is to use the specified filename
@@ -82,6 +82,6 @@ Primary group is used when creating files, use newgrp to "login" to new group an
 ##finding files
 
 - `locate` - find files by name
-- `find`
+- `find` - powerful command with many uses
 
-`locate` uses a databse which is cached and regularly updated (`updatedb`)
+`locate` uses a database which is cached and regularly updated (`updatedb`)
