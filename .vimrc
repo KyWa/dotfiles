@@ -26,4 +26,4 @@ set nolist
 set encoding=utf-8
 
 " vimwiki/vimwiki
-let g:vimwiki_list = [{'path': '~/docs/', 'syntax': 'markdown', 'ext':'.md'}]
+let g:vimwiki_list = [{'path': '~/dotfiles/docs/', 'syntax': 'markdown', 'ext':'.md'}]
