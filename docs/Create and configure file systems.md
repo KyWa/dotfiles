@@ -1,6 +1,6 @@
-=Create, Mount, Unmount and use VFAT,EXT4, and XFS File Systems=
+#Create, Mount, Unmount and use VFAT,EXT4, and XFS File Systems
 
-===ext based plus fat/vfat===
+###ext based plus fat/vfat
 
 `mkfs` is used to `M`a`k`e a `F`ile `S`ystem on an existing partition/disk. It is called as per the filesystem you wish to use. Example:
 
@@ -17,11 +17,11 @@ The `mount` command is used to temporarily mount a filesystem (local or remote) 
 
 To get highly detailed information about a filesystem such as the ext based filesystems the program dumpe2fs can be used. 
 
-===xfs based===
+###xfs based
 
 For the equivelant of `dumpe2fs` for `xfs` filesystems, you will use `xfs_info`. `xfs_admin` will allow you to do labeling and checking. For `fsck` equivelant use `xfs_repair` instead.
 
-==Mount and Unmount NFS/CIFS filesystems==
+##Mount and Unmount NFS/CIFS filesystems
 
 Network shares are mounted via the `fstab` and the `mount` command just like a local file system. When mounting with the `mount` command you must specify the `-t` flag and specify the filesystem type `nfs` or `cifs`. Examples below:
 
@@ -33,7 +33,7 @@ For the `fstab` similarly to a local device. Never dump or `fsck` a remote file 
 * CIFS - `//<IP or Hostname>/Sharename /mount/location cifs <options or defaults> 0 0`
 * NFS - `<IP or Hostname>:path/to/share /mount/location cifs <options or defaults> 0 0`
 
-==Extend Existing Logical Volumes==
+##Extend Existing Logical Volumes
 
 For Logical Volume Management there are a few things to know when it comes time to grow the volumes. To grow the logical volume you use `lvextend`. There are a few things to be aware of when extending the logical volume. Examples:
 
@@ -43,13 +43,13 @@ For Logical Volume Management there are a few things to know when it comes time 
 
 Once the underlying volume (or disk in a virtual environment) is extended, the actual filesystem needs to be increased otherwise the space will not be available. Depending on the filesystem type depends on which tool is used. For EXT based filesystems you will use `resize2fs /path/to/device`. For XFS filesystems you will use `xfs_growfs`.
 
-==Create and Configure Set-GID Directories==
+##Create and Configure Set-GID Directories
 
 Using `chmod g+s <group_name>` will change the use the Set-GID on the directory you specify to cause any files/folders created inside of it to take the parent directory's group. Example:
 
 * `chmod g+s infra dir1` - This will have change the group sticky bit for dir1 to become infra. This will force any file/dir created inside of dir1 to have the owner of infra.
 
-==Create and Manage Access Control Lists==
+##Create and Manage Access Control Lists
 
 By default, `ext4` and `xfs` support ACL, this means nothing needs to be mounted or flagged a specific way. The command `setfacl` or "set file access control lists" has a few options which will be listed below. `getfacl` will get the file access control lists. 
 
