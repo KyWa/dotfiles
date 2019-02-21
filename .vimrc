@@ -7,6 +7,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " vimwiki
 Plugin 'vimwiki/vimwiki'
+" GruvBox
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -24,6 +26,8 @@ set wrap
 set linebreak
 set nolist
 set encoding=utf-8
+colorscheme gruvbox
+set background=dark 
 
 " vimwiki/vimwiki
 let g:vimwiki_list = [{'path': '~/dotfiles/docs/', 'syntax': 'markdown', 'ext':'.md'}]
