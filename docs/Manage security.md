@@ -1,18 +1,18 @@
-#Manage Security
+# Manage Security
 
 `netfilter` is the part of the kernel that manages packet filtering.
 
-##Key-Based Authentication for SSH
+## Key-Based Authentication for SSH
 
 The public key is used to verify the private key. Private keys must be protected and stored securely. To generate ssh-keys you use the program `ssh-keygen`. `rsa` and `dsa` are both strongly encrypted. Default storage for ssh-keys store themselves in `/home/<user>/.ssh/(id_rsa and id_rsa.pub)`. The directory `.ssh` must be secured and requires 700 permissions or ssh authentication will not work. `id_rsa` requires 600 to function properly. To push the public key to a remote server you can use the `ssh-copy-id` command to authenicate over ssh and copy the `id_rsa.pub` key to the remote server.
 
 `ssh-agent bash` and then `ssh-add` will add a cache of your passphrase for your ssh-keys for your current session. 
 
-##Intro to SELinux
+## Intro to SELinux
 
 SELinux is an application firewall for written by the NSA for Linux systems. All files/folders/processes/ports have an SELinux context. This determines if that object has rights to alter other objects on the system. `getenforce` shows the current run-mode and `setenforce` will set the current run-mode. `/etc/selinux/config` is the main configuration file for `selinux` to set which run-mode it lives in. A reboot is required to force the new mode.
 
-###SELinux Documentation and man pages:
+### SELinux Documentation and man pages:
 
 * `booleans`
 * `selinux`
@@ -31,6 +31,6 @@ SELinux booleans enable runtime customization of SELinux policy.
 
 `getsebool` will get a list of all SELinux Booleans and their values (current, default). `setsebool` will change the current run-mode of a specific SELinux boolean as it stands and adding a `-P` will make it persist through reboots.
 
-###Diagnosing and Addressing SELinux policy violations
+### Diagnosing and Addressing SELinux policy violations
 
 `setroubleshoot-server` isn't preinstalled by default. It is a tool which will allow you to run `sealert` on the audit log (`/var/log/audit/audit.log`) and view the log in a human readable format with options showing what failed in SELinux and how to resolve it. `-a` flag should be used to run reports in the default setting.

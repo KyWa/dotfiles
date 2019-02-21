@@ -1,6 +1,6 @@
-#misc
+# misc
 
-##tmux
+## tmux
 ---
 Main control combo: `ctrl+b`. combo+command
 
@@ -14,16 +14,17 @@ Main control combo: `ctrl+b`. combo+command
 * `:` type command
 ---
 
-##Booting and Runlevels
+## Booting and Runlevels
 ---
 *boot into single user*
 
-Edit the kernel line and remove `ro` and replace with:
-`rw init=/sysroot/bin/sh`
+Edit the kernel line and add the following to the end: `rd.break`
 
 *change root password while in single user*
 
 Once the shell comes up remount the filesystem to allow for writes: `mount -o remount,rw /sysroot`
+
+Chroot into /sysroot
 
 Change the password with `passwd`
 
@@ -76,6 +77,6 @@ Authfile should be look like this:
 domain = DOM.LOC
 username = <username>
 
-###Interactive Shell vs Non-Interactive SHell
+### Interactive Shell vs Non-Interactive SHell
 
 `/etc/profile` and `~/.bash_profile` are used for interactive shells. AKA being logged into the terminal/shell and using it. `/etc/bashrc` and `~/.bashrc` are used for both and only for non-interactive (shell scripts, one off ssh commands etc..).

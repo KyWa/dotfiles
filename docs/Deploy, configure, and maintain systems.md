@@ -1,7 +1,6 @@
-#Deploy, Configure and Maintain Systems
+# Deploy, Configure and Maintain Systems
 
-##Configure network Hostname Resolution Statically or Dynamically: Troubleshooting
-
+## Configure network Hostname Resolution Statically or Dynamically: Troubleshooting 
 `ifconfig` is being depricated. `ip` is the new program to use. Syntax is similar:
 
 * `ip addr` - shows all NIC addresses (just use `ip a` for short)
@@ -15,11 +14,11 @@
 * `-u` - shows only UDP
 * `-n` - shows port number instead of "service"
 
-##Configure network Hostname Resolution Statically or Dynamically: Network Manager
+## Configure network Hostname Resolution Statically or Dynamically: Network Manager
 
 `nmcli` is Network Manager's cli tool. `nmtui` is Network Manager's TUI tool. 
 
-##Configure network Hostname Resolution Statically or Dynamically: Hostname Configuration
+## Configure network Hostname Resolution Statically or Dynamically: Hostname Configuration
 
 `/etc/resolv.conf` has a `search` line which adds a search suffix to queries. `nameserver` specifies which DNS nameservers to use when resolving DNS names. `/etc/hosts` can be used to "poison" DNS entries by overruling DNS queries with hard coded entries. `/etc/resolv.conf` is modified/managed by Network Manager. `/etc/nsswitch.conf` is a config file that manages Name Service Switching. Inside of here you can specify to use `files` when doing host lookups or remove it so the `/etc/hosts` file cannot be used to override/poison DNS queries.
 
@@ -31,13 +30,13 @@ To change the DNS server for an interface without editing /etc/resolv.conf (whic
 
 `getent` can be used to get entries from Name Service Switch libraries.
 
-##Schedule Tasks Using at and cron
+## Schedule Tasks Using at and cron
 
 *at*
 
 `at` is simliar to cron as it handles tasks "at" a certain/set time. Not installed by default. `atq` will list all jobs set to run. `atrm` will remove an `at` job. If the file `/etc/at.allow` exists only the users in the file can use `at`. If the file `/etc/at.deny` exists, all users can use `at` except those in the file `/etc/at.deny`. Only one of these files can exist and still function.
 
-###Common commands
+### Common commands
 
 * `at now +1 minute` - runs whatever command 1 minute from issuing this command
 * `at 12:00am` - runs whatever command at midnight
@@ -48,7 +47,7 @@ To change the DNS server for an interface without editing /etc/resolv.conf (whic
 
 `*/5 * * * * root /usr/bin/logger hi`
 
-##Configure a Physical Machine to Host Virtual Machines
+## Configure a Physical Machine to Host Virtual Machines
 
 Required packages to install/memorize to have a fully running virtualized environment in RHEL 7:
 
@@ -61,11 +60,11 @@ Required packages to install/memorize to have a fully running virtualized enviro
 
 `libvirtd` must be enabled and started. 
 
-##Configure a System to use Time Services
+## Configure a System to use Time Services
 
 `timedatectl` is the main tool used to set time on a RHEL based Linux system. `tzselect` will give an interactive shell to find the zone information needed to set the correct time. 
 
-###common options for timedatectl
+### common options for timedatectl
 
 * `timedatectl set-time 12:32`
 * `timedatectl set-timezone Americas/Chicago`
@@ -74,7 +73,7 @@ Required packages to install/memorize to have a fully running virtualized enviro
 
 For `ntp`, `chronyd` is the daemon that handles `ntp` services. `chronyc` is a CLI tool to manage `chronyd`.
 
-##Insatlling and Updating Software Packages with YUM
+## Insatlling and Updating Software Packages with YUM
 
 `yum` stands for YellowDog Update Manager. `yum check-update` will pull package information and check which packages have update candidates. `rpm` is the underlying package management system of `yum`. `yumdownloader` can be used to download the rpm package without installing it. `yum localinstall` will install a .rpm file instead of using the `rpm` command. 
 
