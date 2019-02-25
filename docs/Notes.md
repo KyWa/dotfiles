@@ -1,5 +1,6 @@
 # Notes
         * [[RHCSA]]
         * [[RHCE]]
-        * [[Ansible]]
+        * [Kubernetes](Kubernetes)
+        * [Ansible](Ansible)
         * [[misc]]
