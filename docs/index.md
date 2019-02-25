@@ -1,3 +1,3 @@
 # The Wiki of Wikis
-        * [[Notes]] --All notes
-        * [[ToDo]] --ToDo list
+        * [Notes](Notes) --All notes
+        * [ToDo](ToDo) --ToDo list
