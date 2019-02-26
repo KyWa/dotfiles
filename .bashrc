@@ -9,7 +9,7 @@ fi
 export EDITOR=vim
 export PS1="\[\e[33m\]\W\[\e[m\]> "
 set -o vi
-
+export PATH=$PATH:/usr/local/go/bin/
 # Aliases
 #quality of life for ls and grep
 alias ls='ls -Fh --color=auto'

@@ -11,7 +11,11 @@
 * `+#` shutdown in `#` minutes
 * `00:00` shutdown at specificed time (24hr format)
 
-`systemctl` can be used to shutdown the system. 
+`systemctl halt` will stop the system.
+
+## system targets
+
+To view *active* system targets: `systemctl list-units --type=target`. To view *all* targets installed on the system: `systemctl list-units --type=target --all`
 
 ## booting systems into different runlevels
 
@@ -19,7 +23,7 @@ At the GRUB menu the following line can be appended to the kernel line to force 
 
 To find the default runlevel run `systemctl get-default`. To change 'runlevel' you run `systemctl isolate <runlevel type>.target`.
 
-### Runlevel Targets
+## Runlevel Targets
 
 * `multi-user` all services running, no GUI
 * `graphical` all services running, with GUI
