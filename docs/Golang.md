@@ -5,10 +5,8 @@
 ```go
 func main() {
      defer fmt.Println("were done")
-     
      fmt.Println("We are going to do a thing")
 }
-
 ```
 
 When doing a reflect on a type, you must use Println to view the result as Printf will not work

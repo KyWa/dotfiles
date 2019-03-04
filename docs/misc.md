@@ -32,8 +32,6 @@ Add the autorelabel file for SELinux: `touch /.autorelabel`
 
 Exit the shell to reboot the system
 ---
-
----
 *change current runlevel*
 
 `systemctl isolate <runevel.target>`
