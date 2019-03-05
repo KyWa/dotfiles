@@ -35,9 +35,17 @@ In the grub menu on bootup, you can specify the runlevel to boot into by appendi
 
 ## Process Management
 
+For jobs running in the background (viewed with `jobs`) they can be killed with `%id` where id is the number listed from the `jobs` output.
+
 `pgrep` is capable of searching for processes with the name passed. `pgrep` defaults to showing just the PID, pass `-l` to see the name of the process. `-u` and giving a user name will show all processes for that user.
 
 `pkill` can kill the found proceses. `ps` is used to search for processes. `pkill` uses the standard POSIX `kill` codes (-9, -15, etc..).
+
+`kill` will default to `-15` when run without args.
+
+Processes do not always have to be killed. They can be stopped and continued if needed (`-19` and `-18` respectively)
+
+`nice`
 
 ## Locate and Inerpret System Log Files/Journals
 
