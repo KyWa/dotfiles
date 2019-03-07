@@ -12,7 +12,7 @@ set -o vi
 export PATH=$PATH:/usr/local/go/bin/
 # Aliases
 #quality of life for ls and grep
-alias ls='ls -Fh --color=auto'
+alias ls='ls -Fh'
 alias grep='grep --color=auto'
 #better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
