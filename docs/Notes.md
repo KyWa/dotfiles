@@ -2,6 +2,7 @@
         * [RHCSA](RHCSA)
         * [RHCE](RHCE)
         * [Kubernetes](Kubernetes)
+        * [Vault](Vault)
         * [Ansible](Ansible)
         * [misc](misc)
         * [Golang](Golang)
