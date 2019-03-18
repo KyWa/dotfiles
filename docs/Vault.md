@@ -27,3 +27,5 @@ Other commands:
     ssh            Initiate an SSH session
     token          Interact with tokens
 '''
+
+When a secrets backend is `disabled` it does not magically store the secrets for later. They are destroyed.
