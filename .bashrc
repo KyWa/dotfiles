@@ -6,13 +6,16 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Features and Global Vars
+umask 002
+set -o vi
 export EDITOR=vim
 export PS1="\[\e[33m\]\W\[\e[m\]> "
-set -o vi
 export PATH=$PATH:/usr/local/go/bin/
+#Windows Docker fix
+export DOCKER_HOST="tcp://localhost:2375"
 # Aliases
 #quality of life for ls and grep
-alias ls='ls -Fh'
+alias ls='ls -Fh --color=auto'
 alias grep='grep --color=auto'
 #better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
@@ -31,9 +34,3 @@ mcd(){
 cls(){
     clear
 }
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/kwalker/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/kwalker/Downloads/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/kwalker/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/kwalker/Downloads/google-cloud-sdk/completion.bash.inc'; fi
