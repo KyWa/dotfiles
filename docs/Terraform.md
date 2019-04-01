@@ -6,6 +6,4 @@ For calling variables that are from `data` instead of a resource you must prefix
 
 To call a playbook for Ansible with output vars from Terraform:
 
-provisioner "local-exec" {
-  command = "ANSIBLE_HOST_KEY_CHECKING=\"False\" ansible-playbook -u ${var.ssh_user} --private-key=\"~/.ssh/id_rsa\" --extra-vars='{"aws_subnet_id": ${aws_terraform_variable_here}, "aws_security_id": ${aws_terraform_variable_here} }' -i '${azurerm_public_ip.pnic.ip_address},' ansible/deploy-with-ansible.yml"
-  }
+`provisioner "local-exec" { command = "ANSIBLE_HOST_KEY_CHECKING=\"False\" ansible-playbook -u ${var.ssh_user} --private-key=\"~/.ssh/id_rsa\" --extra-vars='{"aws_subnet_id": ${aws_terraform_variable_here}, "aws_security_id": ${aws_terraform_variable_here} }' -i '${azurerm_public_ip.pnic.ip_address},' ansible/deploy-with-ansible.yml"}`
