@@ -12,4 +12,4 @@ VPN/Interconnect/Direct Peering for connectivity options.
 
 Structural Layout: {Organization: {Folder: {Projects: Resources}}}
 
-Access is given based on roles. Google Accounts or Cloud Identity user, Service Account, Google Group, Cloud Identity (GSuite Domain). 
+Access is given based on roles. Google Accounts or Cloud Identity user, Service Account, Google Group, Cloud Identity (GSuite Domain). Higher tier permissions cannot be changed on lower objects. Example: Project Admin cannot be restricted on any object below the project.
