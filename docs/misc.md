@@ -78,7 +78,7 @@ username = <username>
 * `find` all dead symlinks and remove
 `find -L . -name . -o -type d -prune -o -type l -exec rm {} +`
 
-### Interactive Shell vs Non-Interactive SHell
+## Interactive Shell vs Non-Interactive SHell
 
 `/etc/profile` and `~/.bash_profile` are used for interactive shells. AKA being logged into the terminal/shell and using it. `/etc/bashrc` and `~/.bashrc` are used for both and only for non-interactive (shell scripts, one off ssh commands etc..).
 

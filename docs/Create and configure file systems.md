@@ -51,7 +51,7 @@ Using `chmod g+s <group_name>` will change the use the Set-GID on the directory 
 
 ## Create and Manage Access Control Lists
 
-By default, `ext4` and `xfs` support ACL, this means nothing needs to be mounted or flagged a specific way. The command `setfacl` or "set file access control lists" has a few options which will be listed below. `getfacl` will get the file access control lists. 
+By default `xfs` supports ACL, this means nothing needs to be mounted or flagged a specific way (`ext4` must be mounted with the `acl` flag). The command `setfacl` or "set file access control lists" has a few options which will be listed below. `getfacl` will get the file access control lists. 
 
 * `-m` - Modify or Set
 * `u:<user>:<perms>` - Permissions to apply to user
