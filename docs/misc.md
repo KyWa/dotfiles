@@ -81,3 +81,9 @@ username = <username>
 ### Interactive Shell vs Non-Interactive SHell
 
 `/etc/profile` and `~/.bash_profile` are used for interactive shells. AKA being logged into the terminal/shell and using it. `/etc/bashrc` and `~/.bashrc` are used for both and only for non-interactive (shell scripts, one off ssh commands etc..).
+
+### `jq`
+
+`jq ".[] | { domainname: .name, nameservers: .nameServers[0]}"`
+
+This will return the .name string and the .nameServers string and put them on seperate

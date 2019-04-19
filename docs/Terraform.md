@@ -6,4 +6,12 @@ For calling variables that are from `data` instead of a resource you must prefix
 
 To call a playbook for Ansible with output vars from Terraform:
 
-`provisioner "local-exec" { command = "ANSIBLE_HOST_KEY_CHECKING=\"False\" ansible-playbook -u ${var.ssh_user} --private-key=\"~/.ssh/id_rsa\" --extra-vars='{"aws_subnet_id": ${aws_terraform_variable_here}, "aws_security_id": ${aws_terraform_variable_here} }' -i '${azurerm_public_ip.pnic.ip_address},' ansible/deploy-with-ansible.yml"}`
+```
+provisioner "local-exec" { 
+    command = "ANSIBLE_HOST_KEY_CHECKING=\"False\" ansible-playbook -u ${var.ssh_username} --private-key=\"~/.ssh/id_rsa\" -i '${azurerm_public_ip.azr_pip.ip_address},' --ask-vault-pass ansible/azure_rhel_config.yml"
+}
+```
+If someone adds a NSG_rule or other resources (not altering items created by Terraform), Terraform will not be able to destroy/edit those items unless doing a `terraform import`. Tested with a NSG_Rule and Terraform was unaware of the manual add.
+
+To give resuurces names based on work env use the following: 
+`name = "resourcename-${terraform.workspace}"`

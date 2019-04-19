@@ -25,7 +25,11 @@ alias mkdir='mkdir -pv'
 alias getip='curl http://ipecho.net/plain;echo'
 #ssh get rid of annoyances
 alias ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+<<<<<<< HEAD
 alias kubectl='kubectl.exe'
+=======
+alias work='cd /mnt/c/Users/kwalker/Working/'
+>>>>>>> 276ccb8c66b9ff6d436b58a99c106876c293605e
 
 # Functions
 mcd(){
@@ -35,3 +39,9 @@ mcd(){
 cls(){
     clear
 }
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kwalker/google-cloud-sdk/path.bash.inc' ]; then . '/home/kwalker/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kwalker/google-cloud-sdk/completion.bash.inc' ]; then . '/home/kwalker/google-cloud-sdk/completion.bash.inc'; fi
