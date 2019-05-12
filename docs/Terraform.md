@@ -15,3 +15,21 @@ If someone adds a NSG_rule or other resources (not altering items created by Ter
 
 To give resuurces names based on work env use the following: 
 `name = "resourcename-${terraform.workspace}"`
+
+# GCP specifics
+When specifying projects, it must be listed in the `provider` block otherwise it will use default.
+
+# Variables
+Use a variables file (variables.tf) for initializing variables. This allows you to use blocks like:
+
+```
+variable "test_var" {
+    description = "Does something variable like"
+}
+```
+
+Then you have a `terraform.tfvars` file for the actual variables and can have one for prod and stage and whatever else. They are passed through like so:
+
+`terraform apply -var-file=terraform.tfvars`
+
+
