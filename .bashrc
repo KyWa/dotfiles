@@ -12,7 +12,9 @@ export EDITOR=vim
 export PS1="\[\e[33m\]\W\[\e[m\]> "
 export PATH=$PATH:/usr/local/go/bin/
 #Windows Docker fix
-export DOCKER_HOST="tcp://localhost:2375"
+if [[ -f /mnt/c/Users ]];then
+    export DOCKER_HOST="tcp://localhost:2375"
+fi
 # Aliases
 #quality of life for ls and grep
 if [[ -f /etc/os-release ]];then
