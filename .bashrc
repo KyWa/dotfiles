@@ -22,7 +22,7 @@ if [[ -f /etc/os-release ]];then
     alias ls='ls -Fh --color=auto'
 else
     # if on macbook don't (throws errors)    
-    alias ls='ls -Fh'
+    alias ls='ls -FhG'
 fi
 alias grep='grep --color=auto'
 #better process checking
