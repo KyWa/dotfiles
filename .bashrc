@@ -12,11 +12,18 @@ export EDITOR=vim
 export PS1="\[\e[33m\]\W\[\e[m\]> "
 export PATH=$PATH:/usr/local/go/bin/
 #Windows Docker fix
-export DOCKER_HOST="tcp://localhost:2375"
+if [[ -f /mnt/c/Users ]];then
+    export DOCKER_HOST="tcp://localhost:2375"
+fi
 # Aliases
 #quality of life for ls and grep
-alias ls='ls -Fh'
-#alias ls='ls -Fh --color=auto'
+if [[ -f /etc/os-release ]];then
+    # if on main system add in color
+    alias ls='ls -Fh --color=auto'
+else
+    # if on macbook don't (throws errors)    
+    alias ls='ls -FhG'
+fi
 alias grep='grep --color=auto'
 #better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
