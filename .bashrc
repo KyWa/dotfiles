@@ -48,4 +48,3 @@ if [ -f '/home/kwalker/google-cloud-sdk/path.bash.inc' ]; then . '/home/kwalker/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kwalker/google-cloud-sdk/completion.bash.inc' ]; then . '/home/kwalker/google-cloud-sdk/completion.bash.inc'; fi
-i
