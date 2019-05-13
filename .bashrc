@@ -13,12 +13,12 @@ export PS1="\[\e[33m\]\W\[\e[m\]> "
 export PATH=$PATH:/usr/local/go/bin/
 export TERM=xterm-256color
 #Windows Docker fix
-if [[ -f /mnt/c/Users ]];then
+if [ -f /mnt/c/Users ];then
     export DOCKER_HOST="tcp://localhost:2375"
 fi
 # Aliases
 #quality of life for ls and grep
-if [[ -f /etc/os-release ]];then
+if [ -f /etc/os-release ];then
     # if on main system add in color
     alias ls='ls -Fh --color=auto'
 else
@@ -49,9 +49,7 @@ cls(){
     clear
 }
 
-
-
-
+# GCP CLI
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/kwalker/google-cloud-sdk/path.bash.inc' ]; then . '/home/kwalker/google-cloud-sdk/path.bash.inc'; fi
 
