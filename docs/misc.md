@@ -87,3 +87,5 @@ username = <username>
 `jq ".[] | { domainname: .name, nameservers: .nameServers[0]}"`
 
 This will return the .name string and the .nameServers string and put them on seperate
+
+* `hostname -I | awk '{print $1}'` gets ip in clean format of machine
