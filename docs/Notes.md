@@ -5,6 +5,8 @@
         * [Vault](Vault)
         * [Ansible](Ansible)
         * [misc](misc)
+        * [Powershell](Powershell)
+        * [VMWare](VMWare)
         * [Golang](Golang)
         * [Terraform](Terraform)
         * [GCP](GCP)

@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/kwalker/dotfiles/docs'
 let g:netrw_dirhist_2='/Users/kwalker/Downloads/google-cloud-sdk'
 let g:netrw_dirhist_3='/mnt/c/Users/kwalker/Working/terraform/.git'
 let g:netrw_dirhist_4='/home/kwalker/ansible'
 let g:netrw_dirhist_5='/home/kwalker/working/devops_training/workstation/mac'
+let g:netrw_dirhist_6='/home/kwalker/.ansible'
