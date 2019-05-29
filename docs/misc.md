@@ -108,3 +108,14 @@ This will return the .name string and the .nameServers string and put them on se
 
 ## Putty Terminal output issues
 `export NCURSES_NO_UTF8_ACS=1`
+
+## Timestaps in History
+`export NCURSES_NO_UTF8_ACS=1`
+`HISTTIMEFORMAT="%d/%m/%y %T "`
+
+## Centos Regnerate initramfs for Hyper-V if coming from other platform
+`mkinitrd -f -v --with=hid-hyperv --with=hv_utils --with=hv_vmbus --with=hv_storvsc --with=hv_netvsc /boot/initramfs-$(uname -r).img $(uname -r)`
+
+## Iterate over 2 ranges
+`n=1`
+`for i in {01..99};do mv $i $n;n=$(($n+1));done`
