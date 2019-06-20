@@ -56,6 +56,7 @@ Exit the shell to reboot the system
 `pam_tally2 --user=USER --reset`
 
 ---
+## Adding Storage to live machine
 * SAN add guest of physical - run these in order to get an ioscan equivelant
 `for h in /sys/class/scsi_host/host?; do echo $h; echo - - - > $h/scan; done`
 
@@ -89,3 +90,32 @@ username = <username>
 This will return the .name string and the .nameServers string and put them on seperate
 
 * `hostname -I | awk '{print $1}'` gets ip in clean format of machine
+
+## Remove single line from crontab
+`crontab -u root -l | grep -v 'command in cron' | crontab -u root -`
+
+## Get which thread a process is running on
+`for i in $(pgrep process);do ps -mo pid,tid,fname,user,psr -p $i;done`
+
+## Get heavy hitting processes
+`ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10`
+
+## Get System Age
+`tune2fs -l /dev/sda1 | grep created`
+
+## Find local dirs taking up space
+`du -x -h --max-depth=1 /`
+
+## Putty Terminal output issues
+`export NCURSES_NO_UTF8_ACS=1`
+
+## Timestaps in History
+`export NCURSES_NO_UTF8_ACS=1`
+`HISTTIMEFORMAT="%d/%m/%y %T "`
+
+## Centos Regnerate initramfs for Hyper-V if coming from other platform
+`mkinitrd -f -v --with=hid-hyperv --with=hv_utils --with=hv_vmbus --with=hv_storvsc --with=hv_netvsc /boot/initramfs-$(uname -r).img $(uname -r)`
+
+## Iterate over 2 ranges
+`n=1`
+`for i in {01..99};do mv $i $n;n=$(($n+1));done`
