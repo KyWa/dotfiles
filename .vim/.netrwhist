@@ -8,3 +8,6 @@ let g:netrw_dirhist_5='/home/kwalker/working/devops_training/workstation/mac'
 let g:netrw_dirhist_6='/home/kwalker/.ansible'
 let g:netrw_dirhist_6='/Users/kwalker/dotfiles/.git'
 let g:netrw_dirhist_7='/Users/kwalker/Working/terraform/azure/moduletest/sh'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/kwalker/Working/kywa'
+let g:netrw_dirhist_2='/home/kwalker/Working'
