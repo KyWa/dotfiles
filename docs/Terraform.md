@@ -6,7 +6,7 @@ For calling variables that are from `data` instead of a resource you must prefix
 
 To call a playbook for Ansible with output vars from Terraform:
 
-```
+```hcl
 provisioner "local-exec" { 
     command = "ANSIBLE_HOST_KEY_CHECKING=\"False\" ansible-playbook -u ${var.ssh_username} --private-key=\"~/.ssh/id_rsa\" -i '${azurerm_public_ip.azr_pip.ip_address},' --ask-vault-pass ansible/azure_rhel_config.yml"
 }

@@ -6,6 +6,7 @@
         * [Ansible](Ansible)
         * [misc](misc)
         * [Powershell](Powershell)
+        * [Python](Python)
         * [VMWare](VMWare)
         * [Golang](Golang)
         * [Terraform](Terraform)
