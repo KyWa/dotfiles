@@ -12,11 +12,17 @@ fi
 if [[ -f $HOME/.ansible.cfg ]];then
         mv $HOME/.ansiblecfg $HOME/.ansiblecfg.bak
 fi
+# Check for existing TMUX Config
+if [[ -f $HOME/.tmux.conf ]];then
+        mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
+fi
+
 
 # dotfiles and vim
 ln -sv ~/dotfiles/.vimrc ~
 ln -sv ~/dotfiles/.vim ~
 ln -sv ~/dotfiles/.bashrc ~
+ln -sv ~/dotfiles/.tmux.conf ~
 
 # ansible configs
 ln -sv ~/dotfiles/.ansible.cfg ~

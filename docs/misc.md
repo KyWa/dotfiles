@@ -1,4 +1,4 @@
-# misc
+[#](#) misc
 
 ## tmux
 ---
