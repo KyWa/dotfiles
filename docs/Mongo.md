@@ -5,13 +5,12 @@ Compared to SQL here is the break down:
 | NOSQL      | SQL      |
 | ---        | ---      |
 | Database   | Database |
-| Colelction | Table    |
+| Collection | Table    |
 | Document   | Row      |
 
 Documents are stored like JSON files and are basically Key/Value based (at first glance).
 
-'''json
-{
+```json
 "fullname":{
     "first":"john",
     "last":"smith"
@@ -24,4 +23,4 @@ Documents are stored like JSON files and are basically Key/Value based (at first
     "zip":80001
     }
 }
-'''    
+```  
