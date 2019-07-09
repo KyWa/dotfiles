@@ -17,7 +17,7 @@ Documents are stored like JSON files and are basically Key/Value based (at first
     },
 "address":{
     "number":123,
-    "street":Smith",
+    "street":"Smith",
     "city":"Scranton",
     "state":"PA",
     "zip":80001
