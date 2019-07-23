@@ -3,4 +3,4 @@
 ## Needs
     1. Flask Backend
     2. responsive front-end
-    3. mongodb db
+    3. db for storing user choices (pref mongo)

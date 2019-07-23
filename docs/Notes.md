@@ -1,7 +1,7 @@
 # Notes
         * [RHCSA](RHCSA)
         * [RHCE](RHCE)
-        * [Kubernetes](Kubernetes)
+        * [Kubernetes/Openshift](Kubernetes)
         * [Vault](Vault)
         * [Ansible](Ansible)
         * [misc](misc)

@@ -31,5 +31,3 @@ variable "test_var" {
 Then you have a `terraform.tfvars` file for the actual variables and can have one for prod and stage and whatever else. They are passed through like so:
 
 `terraform apply -var-file=terraform.tfvars`
-
-

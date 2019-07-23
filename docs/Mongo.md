@@ -1,4 +1,4 @@
-# MongoDB
+[#](#) MongoDB
 
 Compared to SQL here is the break down:
 
@@ -11,6 +11,7 @@ Compared to SQL here is the break down:
 Documents are stored like JSON files and are basically Key/Value based (at first glance).
 
 ```json
+{
 "fullname":{
     "first":"john",
     "last":"smith"
@@ -24,3 +25,7 @@ Documents are stored like JSON files and are basically Key/Value based (at first
     }
 }
 ```  
+
+* To get server options (current config)
+
+`db.serverCmdLineOpts()`

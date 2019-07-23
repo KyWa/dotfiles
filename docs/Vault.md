@@ -1,4 +1,4 @@
-# Vault
+# HashiCorp's Vault
 
 '''
 Common commands:
