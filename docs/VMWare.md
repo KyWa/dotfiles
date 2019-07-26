@@ -18,4 +18,3 @@
 `/etc/init.d/vpxa start`
 `/etc/init.d/hostd start`
 `for i in `find /vmfs/volumes/ | grep ".vmx" | grep -v vmxf | grep -v vswp | grep -v ".bak"`;do vim-cmd solo/registervm $i;done`
-

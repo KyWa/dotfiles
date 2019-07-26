@@ -1,4 +1,4 @@
-[#](#) MongoDB
+# MongoDB
 
 Compared to SQL here is the break down:
 
