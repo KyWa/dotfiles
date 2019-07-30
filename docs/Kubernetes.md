@@ -1,8 +1,8 @@
 # Kubernetes and OpenShift
 
-* [Builds](Builds)
+* [Builds](OpenShift-Builds)
 * Storage
-* Networking
+* [Networking](OpenShift-Networking)
 
 In OpenShift to allow storage from the host to a container/pod you must modify the SELinux configuration via: `semanage fcontext -a -t container_file_t '/path/to/data(/.*)?'`. Don't forget to apply them via `restorecon -Rv /path/to/data`.
 
@@ -54,12 +54,6 @@ The layout of RHOCP is as follows:
 * Deployment Config `dc` - Represents the set of containers included in a `pod` and the deployment strategies to be used.
 * Build Config `bc` - Defines a process to be executed in the OpenShift project. Used by the OpenShift S2I feature. `bc` and `dc` work together to provide an extensible CI/CD workflow
 * Routes - Represent a DNS host name recognized by the OpenShift router as an ingress point for applications and microservices.
-
-## Networking
-
-Each container gets an IP from the cluster handed out by the SDN run by Kubernetes. Services are used to target specific pods instead of bothering with IPs as they change far to often. External access is done by applying the `NodePort` attribute which is a network port redirected by all the cluster nodes to the SDN. OpenShift handles external access via Routes. Routes define an external-facing DNS name and ports for a service. A router (ingress controller) forwards HTTP and TLS requests to the service address inside the Kubernetes SDN. The only requirement is that the desired DNS names are mapped to the IP addresses of the RHOCP router nodes.
-
-Kubernetes has no easy way for pods to find the IPs of other pods/containers, Services are used to target other pods instead.
 
 ## OpenShift Usage
 
@@ -150,4 +144,16 @@ OpenShift provides the `oc port-forward` command for forwarding a local port to 
 * the port-forward mapping exists only to the workstation where the `oc` client runs while a service maps a port for all network users
 * a service load-balances connections to multiple pods, where a port-forward mapping forwards to a single pod
 
+The oc new-app command can be used with the `-o json` or `-o yaml` option to create a skeleton resource definition file in JSON or YAML format, respectively. This file can be customized and used to create an application using the `oc create -f <filename>` command, or merged with other resource definition files to create a composite application.
 
+`oc new-app` creates a few things when run. It creates a `dc`, an `Application / Image Stream`, and a Service. `oc new-app` can also target private registires or even source repositories to run a S2I build.
+
+`oc get` outputs info about the cluster resources. You can specify which info to get via `oc get RESOURCE_TYPE` much like `kubectl` (ex. `kubectl get pods`). You can also issue a `oc get all` command to get a summary of the most important components of a cluster. `oc describe` will give more detailed information on a resource. You can add a `-w` to the `oc get` command and it will `watch` the process.
+
+#### List of Common Resource Commands
+
+* `oc export` - Exports a resource definition to a YAML file but can be specified via a `-o` flag
+* `oc create` - Creates resources from a resource definition
+* `oc edit` - edits resources of a resource definition. Defaults to `vi` buffer for editing
+* `oc delete RESOURCE_TYPE name` - removes a resource from an OpenShift cluster. Note: deleting a pod will only cause the runtime to spawn a new one based on policy
+* `oc exec CONTAINER_ID options command` - executes commands inside a container
