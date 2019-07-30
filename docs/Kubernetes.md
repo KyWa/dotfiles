@@ -126,7 +126,7 @@ Some pods may require environment variables that can be read by a container. Kub
 * `selector` is how the service finds pods to forward packets to
 * each service is assigned a unique ip for clients to connect to.
 
-For each project in OpenShift 2 env vars are created automatically and injected into containers for all pods inside the same project:
+For each project in OpenShift, two env vars are created automatically and injected into containers for all pods inside the same project:
 
 * `SVC_NAME _SERVICE_HOST` - is the service IP address
 * `SVC_NAME _SERVICE_PORT` - is the service TCP port

@@ -1,5 +1,4 @@
 # Cloud Notes
-
-* AWS
-* [GCP](GCP)
-* Azure
+        * AWS
+        * [GCP](GCP)
+        * Azure

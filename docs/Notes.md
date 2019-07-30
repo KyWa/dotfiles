@@ -1,9 +1,10 @@
 # Notes
-        * [Certification](Certification)
+        * [Certifications](Certification)
         * [Kubernetes/Openshift](Kubernetes)
         * [Hashicorp](Hashicorp)
+        * [Linux](Linux)
         * [Programming](Programming)
         * [Cloud](Cloud)
         * [Ansible](Ansible)
-        * [misc](misc)
+        * [Misc](misc)
         * [VMWare](VMWare)

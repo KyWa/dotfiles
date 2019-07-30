@@ -10,7 +10,7 @@ if [[ -f $HOME/.vimrc ]];then
 fi
 # Check for existing Ansiblecfg
 if [[ -f $HOME/.ansible.cfg ]];then
-        mv $HOME/.ansiblecfg $HOME/.ansiblecfg.bak
+        mv $HOME/.ansible.cfg $HOME/.ansible.cfg.bak
 fi
 # Check for existing TMUX Config
 if [[ -f $HOME/.tmux.conf ]];then
