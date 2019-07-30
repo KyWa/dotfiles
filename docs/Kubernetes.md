@@ -1,7 +1,7 @@
 # Kubernetes and OpenShift
 
 * [Builds](OpenShift-Builds)
-* Storage
+* [Storage](OpenShift-Storage)
 * [Networking](OpenShift-Networking)
 * [Deployments](OpenShift-Deployments)
 
