@@ -103,8 +103,7 @@ Some pods may require environment variables that can be read by a container. Kub
 {
     "kind": "Service", 
     "apiVersion": "v1",
-    "metadata": {
-        "name": "quotedb" 
+    "metadata": { "name": "quotedb" 
     },
     "spec": {
         "ports": [ 
