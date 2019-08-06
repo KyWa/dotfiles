@@ -119,3 +119,6 @@ This will return the .name string and the .nameServers string and put them on se
 ## Iterate over 2 ranges
 `n=1`
 `for i in {01..99};do mv $i $n;n=$(($n+1));done`
+
+## ElementaryOS UI Doesn't load fix
+`mv /etc/xdg/autostart/at-spi-dbus-bus.desktop /etc/xdg/autostart/at-spi-dbus-bus.disabled`
