@@ -88,7 +88,6 @@ Routes can be secured or unsecured. Secure routes provide the ability to use sev
 * Re-encryption Termination - Re-encryption is a variation on edge termination, where the router terminates TLS with a certificate, then re-encrypts its connection to the endpoint, which might have a different certificate. Therefore the full path of the connection is encrypted, even over the internal network. The router uses health checks to determine the authenticity of the host.
 
 *Example of creating a secure route*
-
 ```sh
 openssl genrsa -out example.key 2048
 openssl req -new -key example.key -out example.csr -subj "/C=US/ST=TX/L=Houston/O=Example/OU=IT/CN=test.example.com"
