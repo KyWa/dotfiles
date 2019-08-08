@@ -8,6 +8,7 @@
 * [Installation](OpenShift-Installation)
 * [Components](OpenShift-Components)
 * [Troubleshooting](OpenShift-Troubleshooting)
+* [ConfigMaps and Secrets](OpenShift-ConfigMaps-Secrets)
 
 Registries in `podman` are modified in `/etc/containers/registries.conf`.
 
