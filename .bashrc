@@ -10,7 +10,7 @@ umask 002
 set -o vi
 export EDITOR=vim
 export PS1="\[\e[33m\]\W\[\e[m\]> "
-export PATH=$PATH:/usr/local/go/bin/
+export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/
 export TERM=xterm-256color
 #Windows Docker fix
 if [ -f /mnt/c/Users ];then

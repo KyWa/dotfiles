@@ -15,6 +15,8 @@ You can view the details about a role by using `oc describe`. Examples:
 * `oc describe clusterPolicyBindings :default` - Views Cluster bindings
 * `oc describe policyBindings :default` - Views Local bindings
 
+Local Policy is reference to Project-level access. Cluster Policy is reference to overall administrative access.
+
 *A quick table showing some of the operations for managing local policies*
 
 | Command                                                 | Description                                                |
@@ -35,6 +37,16 @@ You can view the details about a role by using `oc describe`. Examples:
 | oc adm policy remove-cluster-role-from-user `role` `username`   | Removes a given role from specified users for all projects in the cluster.  |
 | oc adm policy add-cluster-role-to-group `role` `groupname`      | Binds a given role to specified groups for all projects in the cluster.     |
 | oc adm policy remove-cluster-role-from-group `role` `groupname` | Removes a given role from specified groups for all projects in the cluster. |
+
+### User Types
+
+All interaction with OpenShift is associated with a user. 
+
+* `Regular users` - This is the way the most interactive OCP users are represented. Represented by the `user` object
+* `System users` - Many of these are created automatically when the infrastructure is defined, mainly for the purpose of enabling the infrastructure to securely interact with the API. System users include a cluster admin (full access), a per-node user, users for use by routers and registires and others. An anonymous system user also exists that is used by default for unauthenticated request. Examples of system users include: `system:admin`, `system:openshift-registry`, and `system:node:node1.example.com`.
+* `Service accounts` - These are special system users associated with projects; some are created automatically when the project is first created, and project administrators can create more for the purpose of defining access to the contents of each project. Service accounts are represented with the `ServiceAccount` object. Examples of service account users include `system:serviceacount:default:deployer` and `system:serviceaccount:foo:builder`.
+
+Every user must authenicate before they can access OCP. API requets with *no authentication or invalid authentication* are authenticated as requests by the anonymous system user. After successful authentication, policy determines what the user is authorized to do.
 
 ### Security Context Contraints
 
@@ -58,4 +70,3 @@ Service accounts provide a flexible way to control API access without sharing a 
 | edit             | A user that can modify most objects in a project, but does not have the power to view or modify roles or bindings.                                                                                    |
 | self-provisioner | A user that can create their own projects.                                                                                                                                                            |
 | view             | A user who cannot make any modifications, but can see most objects in a project. They cannot view or modify roles or bindings.                                                                        |
-
