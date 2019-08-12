@@ -1,0 +1,4 @@
+# OpenShift Components
+
+`etcd`
+`registry`
