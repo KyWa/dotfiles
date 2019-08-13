@@ -122,3 +122,6 @@ This will return the .name string and the .nameServers string and put them on se
 
 ## ElementaryOS UI Doesn't load fix
 `mv /etc/xdg/autostart/at-spi-dbus-bus.desktop /etc/xdg/autostart/at-spi-dbus-bus.disabled`
+
+## VIM append/insert
+Highlight the lines you want with visual block mode `V` and then hit `:` and `:'<,'>` will be in command for you. Add whatever you are needing to this. Example: `:'<,'>s!^!*\ ` will add `* ` to the beginning of each highlighted line. 
