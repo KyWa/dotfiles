@@ -1,4 +1,3 @@
 # OpenShift Components
 
-`etcd`
-`registry`
+* [Registry](OpenShift-Registries)
