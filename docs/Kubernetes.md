@@ -12,7 +12,7 @@
 
 Registries in `podman` are modified in `/etc/containers/registries.conf`.
 
-####Kubernetes Terminology
+#### Kubernetes Terminology
 
 | Term        | Definition                                                                                                 |
 | ---         | ---                                                                                                        |
@@ -26,7 +26,7 @@ Registries in `podman` are modified in `/etc/containers/registries.conf`.
 
 [OpenShift Visual](https://role.rhu.redhat.com/rol-rhu/static/static_file_cache/do180-4.0/openshift-arch-stack.png)
 
-####OpenShift Terminology
+#### OpenShift Terminology
 
 | Term       | Definition                                                                  |
 | ---        | ---                                                                         |
@@ -44,7 +44,7 @@ The layout of RHOCP is as follows:
 
 [Kubernetes/OpenShift Architecture](https://role.rhu.redhat.com/rol-rhu/static/static_file_cache/do180-4.0/openshift-arch-overview-2.png)
 
-####Describing Kubernetes Resource Types
+#### Describing Kubernetes Resource Types
 
 * Pods `po` - A collection of container(s) that share resources such as IPs and storage volumes
 * Services `svc` - Define a single IP/port combo that provides access to a pool of pods. By default services connect to clients in a round-robin fashion
@@ -53,7 +53,7 @@ The layout of RHOCP is as follows:
 * Persistent Volume Claims `pvc` - Represent a request for storage by a `pod`. `pvc`'s links a `pv` to a `pod` so its containers can make use of it.
 * ConfigMaps `cm` and Secrets - Containts a set of K/Vs that can be used by other resources. Used as a way to centralize configuration values for several resources.
 
-####Describing Kubernetes Resource Types
+#### Describing Kubernetes Resource Types
 
 * Deployment Config `dc` - Represents the set of containers included in a `pod` and the deployment strategies to be used.
 * Build Config `bc` - Defines a process to be executed in the OpenShift project. Used by the OpenShift S2I feature. `bc` and `dc` work together to provide an extensible CI/CD workflow
@@ -64,7 +64,7 @@ The layout of RHOCP is as follows:
 `oc login <clusterUrl>` - Logs you into a cluster. 
 
 
-####Pod Definition Syntax
+#### Pod Definition Syntax
 
 ```yaml
 apiVersion: v1

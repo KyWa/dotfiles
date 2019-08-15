@@ -5,7 +5,6 @@ To look at which templates exist in an OpenShift clsuter run `oc get templates -
 ## Example Deployments
 
 *Delpyment with PersistenVolumeClaims*
-
 ```yaml
 apiVersion: template.openshift.io/v1
 kind: Template
@@ -62,3 +61,5 @@ parameters:
   required: true
   value: 1Gi
 ```
+
+

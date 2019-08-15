@@ -26,6 +26,6 @@ Documents are stored like JSON files and are basically Key/Value based (at first
 }
 ```  
 
-* To get server options (current config)
+##### To get server options (current config)
 
 `db.serverCmdLineOpts()`
