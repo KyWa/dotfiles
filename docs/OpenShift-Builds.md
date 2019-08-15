@@ -44,3 +44,57 @@ If an image stream is not specified in the command, `new-app` attempts to determ
 | Perl     | index.pl cpanfile            |
 
 To see a status of builds in the cluster run: `oc get builds`. You can view the build logs by running `oc logs build/app-1`.
+
+#### Image Streams
+
+An image stream comprises any number of container images identified by tags. It is a consolidated virtual view of related images, similar to a Docker image repository. Developers have many ways of interacting with images and image streams. For example, builds and deployments can receive notifications when new images are added or modified and react accordingly by running a new build or a new deployment.
+
+*An Image Stream Definition*
+```yaml
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: 2016-01-29T13:33:49Z
+  generation: 1
+  labels:
+    app: ruby-sample-build
+    template: application-template-stibuild
+  name: origin-ruby-sample
+  namespace: test
+  resourceVersion: "633"
+  selflink: /oapi/v1/namespaces/test/imagestreams/origin-ruby-sample
+  uid: ee2b9405-c68c-11e5-8a99-525400f25e34
+spec: {}
+status:
+  dockerImageRepository: 172.30.56.218:5000/test/origin-ruby-sample
+  tags:
+  - items:
+    - created: 2016-01-29T13:40:11Z
+      dockerImageReference: 172.30.56.218:5000/test/origin-ruby-sample@sha256:[..]f7dd13d
+      generation: 1
+      image: sha256:4[...]f7dd13d
+    tag: latest
+```
+
+#### Tagging Images
+
+OpenShift provides the `oc tag` command, which is similar to the `docker tag` command except it operates on image streams instead of images. You can add tags to images to make it easier to determine what they contain. The `oc tag` command functions as such: `oc tag source destination`. In this instance, source is the existing tag or image from an image stream and destination is the most recent image for a tag in one or more image streams. To remove a tag use: `oc tag -d img:tag`.
+
+Different types of tags are available. The default behavior uses a permanent tag, which points to a specific image in time even when the source changes; it is not reflected in the destination tag. A `tracking` tag instructs the destination tag's metadata to be imported during the import of the image. To ensure the destination tag is updated whenever the source tag changes, use the `--alias=true` flag. To reimport the tag, use the `--scheduled=true` flag.
+
+To instruct Docker to always fetch the tagged image from the integrated registry, use the `--reference-policy=local` flag. By default, image blobs are mirrored locally by the registry. As a result, they can be pulled more quickly the next time they are needed. The flag also allows for pulling from insecure registires without a need to supply the `--insecure-registry` option to the Docker daemon if the image stream has an insecure annotation or the tag has an insecure import policy. `oc tag --reference-policy=local sourcedestination`.
+
+#### Recommended Tagging Conventions
+
+Developers should take into consideration the life cycle of an image when manage tags. If there is too much information embedded in a tag name, such as `v2.0.1-may-2018`, the tag will point to just one revision of an image and will never be updated. The default image pruning options mean that such an image will never be removed. In very large clusters, the practice of creating new tags for every revised image could eventually fill up the data store with tag metadata for outdated images. Below is a table showing possible good naming conventions for image tag management.
+
+
+| Description         | Example             |
+| ---                 | ---                 |
+| Revision            | myimage:v2.0.1      |
+| Architecture        | myimage:v2.0-x86_64 |
+| Base Image          | myimage:v1.2-rhel7  |
+| Latest Image        | myimage:latest      |
+| Latest Stable Image | myimage:stable      |

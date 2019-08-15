@@ -13,3 +13,5 @@ Inventory files can use env variables like so:
 [all:vars]
 var="{{ lookup( 'env', 'HOME') }}"
 ```
+
+HostVars: `"{{ hostvars['web1']['ansible_facts'] }}"`
