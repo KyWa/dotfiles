@@ -54,7 +54,7 @@ All interaction with OpenShift is associated with a user.
 
 Every user must authenicate before they can access OCP. API requets with *no authentication or invalid authentication* are authenticated as requests by the anonymous system user. After successful authentication, policy determines what the user is authorized to do.
 
-### Security Context Contraints
+### Security Context Contraints (SCC)
 
 `SCC` can control the actions that a pod can perform and what resources it can get. By default, the execution of any container will be granted only the capabilites defined by the restricted SCC.
 
