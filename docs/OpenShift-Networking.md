@@ -95,4 +95,16 @@ openssl x509 -req -days 366 -in example.csr -signkey example.key -out example.cr
 oc create route edge --service=test --hostname=test.example.com --key=example.key --cert=example.crt
 ```
 
+## Sizing Impacts on Networking
+
+OpenShift clusters need two different network CIDRs defined in order to assign pod and service IP addresses to its own components and the workloads running on it. THese two values are the `pod network CIDR` and the `services network CIDR`. These are not routable outside of the cluster, but must not coincide with actual external network CIDRs or issues can occur inside the cluster.
+
+The variable `osm_cluster_network_cidr` determines the network size for the pod IP addresses in the cluster. A /14 (example: `10.128.0.0/14`) would yield 262k IPs for pods. The variable `openshift_portal_net` determines the network size for services in the cluster. These 2 variables default to a /14 and /16 respectively, but Red Hat recommends setting them explicitly.
+
+#### Master Service Ports
+
+The following two variables default to what is listed if not set. You can set them to `443` to avoid appending port numbers to the URLs.
+
+* `openshift_master_api_port=8443`
+* `openshift_master_console_port=8443`
 

@@ -5,6 +5,7 @@
 * [Storage](OpenShift-Storage)
 * [Networking](OpenShift-Networking)
 * [Deployments](OpenShift-Deployments)
+* [High Availability](OpenShift-HA)
 * [Installation](OpenShift-Installation)
 * [Components](OpenShift-Components)
 * [Troubleshooting](OpenShift-Troubleshooting)
@@ -160,3 +161,12 @@ The oc new-app command can be used with the `-o json` or `-o yaml` option to cre
 * `oc edit` - edits resources of a resource definition. Defaults to `vi` buffer for editing
 * `oc delete RESOURCE_TYPE name` - removes a resource from an OpenShift cluster. Note: deleting a pod will only cause the runtime to spawn a new one based on policy
 * `oc exec CONTAINER_ID options command` - executes commands inside a container
+
+## Sizing Considerations
+
+| Type                      | Maximum |
+| ---                       | ---     |
+| Maximum nodes per cluster | 2000    |
+| Maximum pods per cluster  | 120,000 |
+| Maximum pods per node     | 250     |
+| Maximum pods per core     | 10      |

@@ -125,3 +125,6 @@ This will return the .name string and the .nameServers string and put them on se
 
 #### VIM append/insert
 Highlight the lines you want with visual block mode `V` and then hit `:` and `:'<,'>` will be in command for you. Add whatever you are needing to this. Example: `:'<,'>s!^!*\ ` will add `* ` to the beginning of each highlighted line. 
+
+### KVM
+With a bridge interface, to get traffic through the firewall (replace bridge0 with actual bridge name): `firewall-cmd --permanent --direct --passthrough ipv4 -I FORWARD -i bridge0 -j ACCEPT`
