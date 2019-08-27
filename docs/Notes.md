@@ -1,11 +1,14 @@
 # Notes
-        * [Certifications](Certification)
+
+## Products
         * [Kubernetes/Openshift](Kubernetes)
-        * [Hashicorp](Hashicorp)
-        * [Linux](Linux)
-        * [Programming](Programming)
-        * [Cloud](Cloud)
         * [Ansible](Ansible)
-        * [Misc](misc)
         * [VMWare](VMWare)
-        * Prometheus
+        * [Red Hat Virtualization](RHV)
+        * [Hashicorp](Hashicorp)
+## Misc
+        * [Certifications](certification)
+        * [Linux](Linux)
+        * [Development](Development)
+        * [Cloud](Cloud)
+        * [Misc](misc)
