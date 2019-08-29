@@ -174,3 +174,25 @@ In the data domain configuration details section, go to the VM Import tab. This 
 The Import Virtual Machine(s) window opens. Select the cluster of the destination data center. Click OK to import the virtual machine.
 
 Click Compute in the left navigation pane, and then select Virtual Machines. Verify that the imported virtual machine is listed, and that its status is `Down`.
+
+## Highly Available VMs
+
+High Availability for Virtual Machines
+A high availability virtual machine is automatically restarted if it crashes or if its host becomes non-responsive. When these events occur, RHV-M automatically restarts the high availability virtual machine, either on its original host or another host in the cluster.
+
+Red Hat Virtualization Manager constantly monitors hosts and storage to detect hardware failures. With high availability, interruption to service is kept to a minimum because RHV-M restarts virtual machines configured to be highly available within seconds with no user intervention required.
+
+Configuring high availability is a recommended practice for virtual machines running critical workloads.
+
+    ### IMPORTANT
+    There is an important distinction between a Non-Operational host and a Non-Responsive host.
+
+    A non-operational host has a problem but RHV-M can still communicate with it. RHV-M works with the host to migrate any virtual machines running on that host to operational hosts in the cluster. Likewise, a host that is moved to Maintenance mode automatically migrates all its virtual machines to other operational hosts in the cluster.
+
+    A non-responsive host is one that is not communicating with RHV-M. After about 30 seconds, RHV-M fences that host and restarts any highly available virtual machines on operational hosts in the cluster.
+
+Virtual machines may be configured to automatically restart if the host becomes non-responsive or the virtual machine unexpectedly crashes. To use this feature, all hosts in the cluster must support an out-of-band power management system such as iLO, DRAC, RSA, or a network-attached remote power switch configured to act as a fencing device.
+
+RHV-M can also automatically restart high-priority virtual machines first. Multiple levels of priority give the highest restart priority to the most important virtual machines.
+
+Virtual machines are configured to be highly available on an individual basis. It can be configured when you create the virtual machine, or you can edit the VM to enable high availability.

@@ -1,18 +1,14 @@
 # Notes
 
 ## Development
-
-## Platforms
-        * [Kubernetes/Openshift](Kubernetes)
+        * [Development](Development)
 ## Vendors
-## Products
-        * [Ansible](Ansible)
         * [VMWare](VMWare)
-        * [Red Hat Virtualization](RHV)
+        * [Red Hat](RedHat)
         * [Hashicorp](Hashicorp)
-## Misc
+## General
         * [Certifications](Certification)
         * [Linux](Linux)
-        * [Development](Development)
         * [Cloud](Cloud)
+## Misc
         * [Misc Notes](misc)

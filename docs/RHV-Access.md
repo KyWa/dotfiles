@@ -4,6 +4,10 @@ Root can login to cockpit/webconsole by default. To disallow change /etc/pam.d/c
 
 `auth requisite pam_succeed_if.so uid >= 1000 quiet_success` 
 
+## LDAP
+
+To allow LDAP Authentication, you will need to run this command from the RHV-M server: `ovirt-engine-extension-aaa-ldap-setup`
+
 ## Roles
 
 Default roles cannot be edited, but can be copied to create specifc roles. User roles only allow access to the VM portal, admin roles allow access to admin and user portals.
