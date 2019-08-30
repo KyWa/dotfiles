@@ -4,7 +4,7 @@ More info can be found at [Red Hat Documentation](https://access.redhat.com/docu
 
 ### RHV-M
 
-Red Hat Virtualization Manager. Can be self-hosted or an appliance. Stores data in a PostgreSQL database (internal or external).
+Red Hat Virtualization Manager. Can be self-hosted or an appliance (easiest and current recommended install). Stores data in a PostgreSQL database (internal or external).
 
 ### Hosts
 

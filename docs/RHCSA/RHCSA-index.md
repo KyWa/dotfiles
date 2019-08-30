@@ -4,3 +4,4 @@
         * [Configure local storage](ConfigureLocalStorage)
         * [Create and configure file systems](CreateAndConfigureFileSystems)
         * [Manage security](ManageSecurity)
+        * [Deploy, Configure and Maintain Systems](DeployConfigureMaintainSystems.md)

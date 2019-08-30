@@ -20,7 +20,7 @@ A number of services, especially related to authentication and TLS/SSL certifica
 
 If you are using an external authentication provider for RHV-M users, such as Red Hat Identity Management (FreeIPA) or Microsoft Active Directory, ensure that it is highly available so that users can access the web portals. You can use local internal authentication profile users, such as the built-in admin superuser, to provide emergency access in case of an authentication outage.
 
-You must properly test your RHV deployment prior to going into production, and identity any single points of a failure, planning accordingly.
+You must properly test your RHV deployment prior to going into production, and identify any single points of a failure, planning accordingly.
 
 ### Storage Requirements
 

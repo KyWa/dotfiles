@@ -1,4 +1,3 @@
 # Certification Notes
-        * [RHCSA](RHCSA)
+        * [RHCSA](RHCSA/RHCSA-index)
         * [RHCE](RHCE)
-        * RHCA

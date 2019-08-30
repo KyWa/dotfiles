@@ -1,5 +1,5 @@
 # Red Hat Products
 
-        * [Red Hat Virtualization](RHV)
+        * [Red Hat Virtualization](RHV/RHV-index)
         * [Ansible](Ansible)
-        * [Openshift](OpenShift)
+        * [Openshift](OpenShift/OpenShift-index)
