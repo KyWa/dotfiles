@@ -10,8 +10,6 @@
 * [Troubleshooting](RHV-Troubleshooting)
 
 
-[ROL Stage](https://rol.redhat.com/rol-stage/login)
-
 ### RHV Supporting Infrastructure
 
 Due to the many parts required to provision a resiliant RHV environment, it is imperative to take into account other systems and services required to maintain a functioning environment.

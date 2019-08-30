@@ -4,7 +4,7 @@ Self-Hosted engine runs on a single node. Currently no knowledge of making HA (o
 
 Cluster has migration management settings. The cluster can be configured to have auto migration of VMs (if load is to high in a single host) and load balance the VMs across the cluster. These settings can be found in Compute > Cluster EDIT > Migration Policy/Scheduling Policy. 
 
-To wipe a RHVM environment, from the RHV-M server run: `engine-cleanup`.
+To wipe a RHV-M environment, from the RHV-M server run: `engine-cleanup`.
 
 On each of the hosts running RHV, you can run a few sanity checks. One of these is `nodectl check`. This will output information on its bootloader, mountpoints, its storage and the status of the `vdsmd` daemon. 
 
@@ -33,14 +33,14 @@ It is important to maintain complete backups of the machine running Red Hat Virt
     
 `engine-backup` can be run with a few options:
 
-    * `--mode=mode` - Backup or restore are the modes. This option is required.
-    * `--file=backupfile` - Specifies the location of the archive file containing the backup. This option is required.
-    * `--log=log-file` - Specifies the location of a file used to record log messages from the backup or restore operation. This option is required.
-    * `--scope=scope` - Specifies the scope of the backup or restore operation. There are four scopes:
-        * `all` - backup or restore the engine database, Data Warehouse, and RHV-M configuration files (this is the default option).
-        * `db` - backup or restore only the engine database.
-        * `files` - backup or restore only RHV-M configuration files.
-        * `dwhdb` - backup or restore only the Data Warehouse database.
+* `--mode=mode` - Backup or restore are the modes. This option is required.
+* `--file=backupfile` - Specifies the location of the archive file containing the backup. This option is required.
+* `--log=log-file` - Specifies the location of a file used to record log messages from the backup or restore operation. This option is required.
+* `--scope=scope` - Specifies the scope of the backup or restore operation. There are four scopes:
+    * `all` - backup or restore the engine database, Data Warehouse, and RHV-M configuration files (this is the default option).
+    * `db` - backup or restore only the engine database.
+    * `files` - backup or restore only RHV-M configuration files.
+    * `dwhdb` - backup or restore only the Data Warehouse database.
 
     ### NOTE 
     You can run `engine-backup` while RHV-M is running.
@@ -65,8 +65,7 @@ A full restore command would look like this: `engine-backup --mode=restore --fil
     ### NOTE
     Any objects that were added AFTER a backup was completed (vms, disks, etc...) are missing in the engine and will probably require recovery or recreation
     
-    ### NOTE
-    After restoring a RHV-M instance, it may be a good idea to run `engine-setup --accept-defaults --offline` to ensure that the restore goes live.
+After restoring a RHV-M instance run `engine-setup --accept-defaults --offline` to ensure that the restore goes live.
     
 ### Overwriting a RHV-M Installation
 
