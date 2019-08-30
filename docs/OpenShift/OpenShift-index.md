@@ -1,4 +1,4 @@
-# Kubernetes and OpenShift
+# OpenShift
 
 * [Access](OpenShift-Access)
 * [Builds](OpenShift-Builds)
@@ -43,7 +43,7 @@ The layout of RHOCP is as follows:
 * Some services are containerized: authentication, networking, image registry
 * There is also DevOps tooling on top: Web Console, CLI, REST API, SCM Integrations
 
-[Kubernetes/OpenShift Architecture](https://role.rhu.redhat.com/rol-rhu/static/static_file_cache/do180-4.0/openshift-arch-overview-2.png)
+[OpenShift Architecture](https://role.rhu.redhat.com/rol-rhu/static/static_file_cache/do180-4.0/openshift-arch-overview-2.png)
 
 #### Describing Kubernetes Resource Types
 

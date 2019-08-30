@@ -1,4 +1,4 @@
-# Kubernetes and OpenShift Networking
+# OpenShift Networking
 
 Each container gets an IP from the cluster handed out by the SDN run by Kubernetes. Services are used to target specific pods instead of bothering with IPs as they change far to often. External access is done by applying the `NodePort` attribute which is a network port redirected by all the cluster nodes to the SDN. OpenShift handles external access via Routes. Routes define an external-facing DNS name and ports for a service. A router (ingress controller) forwards HTTP and TLS requests to the service address inside the Kubernetes SDN. The only requirement is that the desired DNS names are mapped to the IP addresses of the RHOCP router nodes.
 

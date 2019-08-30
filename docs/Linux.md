@@ -87,8 +87,9 @@ username = <username>
 
 `jq ".[] | { domainname: .name, nameservers: .nameServers[0]}"`
 
-This will return the .name string and the .nameServers string and put them on seperate
+This will return the .name string and the .nameServers string and put them on seperate lines
 
+### Quickly get system IP
 * `hostname -I | awk '{print $1}'` gets ip in clean format of machine
 
 #### Remove single line from crontab
@@ -120,11 +121,8 @@ This will return the .name string and the .nameServers string and put them on se
 `n=1`
 `for i in {01..99};do mv $i $n;n=$(($n+1));done`
 
-#### ElementaryOS UI Doesn't load fix
-`mv /etc/xdg/autostart/at-spi-dbus-bus.desktop /etc/xdg/autostart/at-spi-dbus-bus.disabled`
-
 #### VIM append/insert
-Highlight the lines you want with visual block mode `V` and then hit `:` and `:'<,'>` will be in command for you. Add whatever you are needing to this. Example: `:'<,'>s!^!*\ ` will add `* ` to the beginning of each highlighted line. 
+Highlight the lines you want with visual block mode `V` and then hit `:` and `:'<,'>` will be in command for you. Add whatever you are needing to this. Example: `:'<,'>s!^!*\ ` will add `* ` to the beginning of each highlighted line. Note there is a space after the `\` here.
 
 ### KVM
 With a bridge interface, to get traffic through the firewall (replace bridge0 with actual bridge name): `firewall-cmd --permanent --direct --passthrough ipv4 -I FORWARD -i bridge0 -j ACCEPT`

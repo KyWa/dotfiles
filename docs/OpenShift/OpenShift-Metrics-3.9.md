@@ -1,7 +1,8 @@
 # Metrics Subsystem (Only relating for 3.9)
 
 
-## OpenShift 3.11+ Uses Prometheus for Monitoring
+    ### WARNING
+    This docuement is out of date and is only for previous versions of OpenShift as OpenShift 3.11+ Uses Prometheus for Monitoring
 
 The OpenShift metrics subsystem enables the capture and long-term storage of performance metrics for an OpenShift cluster. Metrics are collected for nodes and for all containers running in each node.
 

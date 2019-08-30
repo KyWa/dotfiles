@@ -5,7 +5,7 @@
 ## Vendors
         * [VMWare](VMWare)
         * [Red Hat](RedHat)
-        * [Hashicorp](Hashicorp)
+        * [Hashicorp](Hashicorp/Hashicorp-index)
 ## General
         * [Certifications](Certification)
         * [Linux](Linux)
