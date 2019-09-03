@@ -1,6 +1,18 @@
 # Ansible
 
-For playbooks to not gather facts you can disable it by adding the following to the top of the playbook: `gather_facts: no`
+Ansible has two types of machines in its architecture: control nodes and managed hosts. Ansible is run from a control node. A control node could be an admins laptop or Ansible Tower (AWX). A managed hosts are listed in an inventory which also organizes those systems into groups. The inventory can be defined in a static text file or dynamically determined by scripts that get information from external sources.
+
+Ansible users create hihg-level *plays* to ensure a group of hosts are in a particular state. A lpay performs a series of *tasks* on the hosts in the order specified by the play. These plays are written in YAML. A file that contains one or more plays is called a *playbook*. Each task runs a *module*, a small piece of code (written in Python, Powershell, or some other language) with specific arguments. Tasks, plays, and playbooks are designed to be idempotent.
+
+
+
+
+
+
+
+
+
+
 
 `handler`'s work if they are called by a `notify` inside a task. `notify` will only call if a change is made during its run.
 
