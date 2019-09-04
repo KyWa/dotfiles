@@ -15,7 +15,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set expandtab
-set tabstop=2
+set tabstop=4
 set shiftwidth=4
 set showmatch
 set backspace=indent,eol,start
@@ -34,7 +34,7 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-
+autocmd FileType yaml setlocal ai ts=2 sw=2 et
 
 colorscheme gruvbox
 set background=dark 
