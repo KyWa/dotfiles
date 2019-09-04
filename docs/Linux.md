@@ -1,10 +1,10 @@
 # Linux Stuff
 
 ## tmux
----
+
 Main control combo: `ctrl+b`. combo+command
 
-*Commands*
+### Commands
 * `c` create new window
 * `n` go to next window
 * `p` go to previous window
@@ -12,15 +12,12 @@ Main control combo: `ctrl+b`. combo+command
 * `%` split window vertically
 * `"` split window horizontally
 * `:` type command
----
 
-## Booting and Runlevels
----
-*boot into single user*
+### boot into single user
 
 Edit the kernel line and add the following to the end: `rd.break`
 
-*change root password while in single user*
+### change root password while in single user
 
 Once the shell comes up remount the filesystem to allow for writes: `mount -o remount,rw /sysroot`
 
@@ -31,32 +28,32 @@ Change the password with `passwd`
 Add the autorelabel file for SELinux: `touch /.autorelabel`
 
 Exit the shell to reboot the system
----
-*change current runlevel*
+
+
+### change current runlevel
 
 `systemctl isolate <runevel.target>`
 
-*change default*
+### change default
 
 `systemctl set-default <runlevel.target>`
 
-*targets*
+### targets
 
 * runlevel1.target --singleuser
 * runlevel3.target --multi-user w/o graphics
 * runlevel5.target --multi-user w/ graphics
----
 
-* Check Age of passwd for user
+
+### Check Age of passwd for user
 `chage -l username`
-* Set passwd to never expire
+### Set passwd to never expire
 `chage -I -1 -m 0 -M 99999 -E -1 username`
-
-* Reset user account login attempts
+### Reset user account login attempts
 `pam_tally2 --user=USER --reset`
 
----
-## Adding Storage to live machine
+
+### Adding Storage to live machine
 #### SAN add guest of physical - run these in order to get an ioscan equivelant
 `for h in /sys/class/scsi_host/host?; do echo $h; echo - - - > $h/scan; done`
 
@@ -90,7 +87,7 @@ username = <username>
 This will return the .name string and the .nameServers string and put them on seperate lines
 
 ### Quickly get system IP
-* `hostname -I | awk '{print $1}'` gets ip in clean format of machine
+`hostname -I | awk '{print $1}'` gets ip in clean format of machine
 
 #### Remove single line from crontab
 `crontab -u root -l | grep -v 'command in cron' | crontab -u root -`

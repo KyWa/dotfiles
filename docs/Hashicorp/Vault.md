@@ -28,4 +28,6 @@ Other commands:
     token          Interact with tokens
 '''
 
-When a secrets backend is `disabled`, it does not magically store the secrets for later. They are destroyed.
+    # WARNING
+    When a secrets backend is `disabled`, it does not magically store the secrets for later. They are destroyed.
+    This was tested with a local `kv` store and may not reflect other storage backends.

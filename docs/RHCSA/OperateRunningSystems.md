@@ -11,7 +11,7 @@
 * `+#` shutdown in `#` minutes
 * `00:00` shutdown at specificed time (24hr format)
 
-`systemctl halt` will stop the system.
+`systemctl halt` will stop the system as well as `systemctl poweroff`.
 
 ## system targets
 

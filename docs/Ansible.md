@@ -8,11 +8,7 @@ Ansible users create hihg-level *plays* to ensure a group of hosts are in a part
 
 
 
-
-
-
-
-
+# Misc Notes
 
 `handler`'s work if they are called by a `notify` inside a task. `notify` will only call if a change is made during its run.
 

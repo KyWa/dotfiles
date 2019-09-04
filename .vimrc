@@ -15,7 +15,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set expandtab
-set tabstop=4
+set tabstop=2
 set shiftwidth=4
 set showmatch
 set backspace=indent,eol,start
@@ -40,4 +40,4 @@ colorscheme gruvbox
 set background=dark 
 
 " vimwiki/vimwiki
-let g:vimwiki_list = [{'path': '~/dotfiles/docs/', 'syntax': 'markdown', 'ext':'.md'}]
+let g:vimwiki_list = [{'path': '~/dotfiles/docs/', 'syntax': 'markdown', 'ext':'.md'},{'path': '~/xom/', 'syntax': 'markdown', 'ext':'.md'}]
