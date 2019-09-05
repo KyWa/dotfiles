@@ -23,3 +23,10 @@ var="{{ lookup( 'env', 'HOME') }}"
 ```
 
 HostVars: `"{{ hostvars['web1']['ansible_facts'] }}"`
+
+
+## Vault
+
+Older versions of Ansible use `--ask-vault-pass` to allow interactivity for Ansible ask the vault password. Post Ansible 2.4 the new method is to run playbooks needing vault secrets like so: `ansible-playbook --vault-id @prompt playbook.yml`
+
+You can use the --vault-password-file option to specify a file that stores the encryption password in plain text. The password should be a string stored as a single line in the file. `ansible-playbook --vault-password-file=vault-pw-file playbook.yml`
