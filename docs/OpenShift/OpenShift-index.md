@@ -25,6 +25,7 @@ Registries in `podman` are modified in `/etc/containers/registries.conf`.
 | Label       | A K/V Pair that can be assigned to any Kubernetes resource                                                 |
 | Namespace   | A scope for Kubernetes resources and processes so like-named resources can be used in different boundaries |
 
+
 [OpenShift Visual](https://role.rhu.redhat.com/rol-rhu/static/static_file_cache/do180-4.0/openshift-arch-stack.png)
 
 #### OpenShift Terminology
