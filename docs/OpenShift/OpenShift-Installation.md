@@ -8,7 +8,7 @@
 
 `subscription-manager repos --enable="rhel-7-server-ansible-2.4-rpms`
 
-`yum install ansible`
+`yum install ansible openshift-ansible`
 
 Via the openshift-ansible installers you have a few inventory groups to add:
 
@@ -38,7 +38,7 @@ openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true',
 
 You can add OpenShift users to the inventory vars like so:
 
-```ini
+```
 openshift_master_htpasswd_users="{'user1':'$apr1$.NHMsZYc$MdmfWN5DM3q280/W7c51c/', 'user2':'$apr1$.NHMsZYc$MdmfWN5DM3q280/W7c51c/'}"
 ```
 

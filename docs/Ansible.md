@@ -20,7 +20,8 @@ Inventory files can use env variables like so:
 var="{{ lookup( 'env', 'HOME') }}"
 ```
 
-HostVars: `"{{ hostvars['web1']['ansible_facts'] }}"`
+* `rescue` - Defines the tasks to run if the tasks defined in the block clause fail.
+* `always` - Defines the tasks that will always run independently of the success or failure of tasks defined in the block and rescue clauses.
 
 #### Debug
 

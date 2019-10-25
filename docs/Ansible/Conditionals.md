@@ -11,6 +11,25 @@ This is useful for running specific tasks/blocks when a condition is met. This c
     state: latest
   when: ansible_facts.hostname = 'webserver'
 ```
+## Handlers
+
+`handler`'s work if they are called by a `notify` inside a task. `notify` will only call if a change is made during its run. Handlers can be considered as inactive tasks that only get triggered when explicitly invoked using a notify statement
+
+```yaml
+tasks:
+  - name: copy demo.example.conf configuration template
+    template:
+      src: /var/lib/templates/demo.example.conf.template
+      dest: /etc/httpd/conf.d/demo.example.conf
+    notify:
+      - restart apache
+
+handlers:
+  - name: restart apache
+    service:
+      name: httpd
+      state: restarted
+```
 
 
 ## Blocks
@@ -73,3 +92,17 @@ tasks:
       state: started
     loop: "{{ mail_services }}"
 ```
+
+## Errors and Failures
+
+`ignore_errors` can be passed alongside a task to continue on even if it errors out: 
+
+```yaml
+- name: do the thing
+  yum:
+    name: packageA
+    state: latest
+  ignore_errors: yes
+```
+
+Handlers only run on a `changed` task and are ignored and not notified on a `ok` or `failed` task. To force handlers you add `force_handlers: yes` to the play.
