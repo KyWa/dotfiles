@@ -1,21 +1,30 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+if [[ $SHELL != "/bin/zsh" ]];then
+    if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+    fi
 fi
-
 # Features and Global Vars
 umask 002
 set -o vi
 export EDITOR=vim
-export PS1="\[\e[33m\]\W\[\e[m\]> "
+
+if [[ $SHELL = "/bin/zsh" ]];then
+    export PS1="%10F%m%f:%11F%1~%f \$ "
+else
+    export PS1="\[\e[33m\]\W\[\e[m\]> "
+fi
+
 export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/
 export TERM=xterm-256color
+
 #Windows Docker fix
 if [ -f /mnt/c/Users ];then
     export DOCKER_HOST="tcp://localhost:2375"
 fi
+
 # Aliases
 #quality of life for ls and grep
 if [ -f /etc/os-release ];then

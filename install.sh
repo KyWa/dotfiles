@@ -21,7 +21,11 @@ fi
 # dotfiles and vim
 ln -sv ~/dotfiles/.vimrc ~
 ln -sv ~/dotfiles/.vim ~
-ln -sv ~/dotfiles/.bashrc ~
+if [[ $SHELL = "/bin/zsh" ]];then
+    ln -sv ~/dotfiles/.bashrc ~/.zshrc
+else
+    ln -sv ~/dotfiles/.bashrc ~
+fi
 ln -sv ~/dotfiles/.tmux.conf ~
 
 # ansible configs
