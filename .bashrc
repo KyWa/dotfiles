@@ -19,6 +19,7 @@ fi
 
 export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/
 export TERM=xterm-256color
+export GOPATH=$HOME
 
 #Windows Docker fix
 if [ -f /mnt/c/Users ];then
