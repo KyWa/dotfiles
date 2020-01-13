@@ -5,6 +5,7 @@
 ### External
 git.kywa.io = Gitlab
 mc.kywa.io = Minecraft
+vpn.kywa.io = OpenVPN
 blog.kywa.io = Ghost
 kywa.io = Nginx
 files.kywa.io = Nextcloud
@@ -17,11 +18,11 @@ kvm.kywa.io = oVirt Hosted-Engine Web
 okd.kywa.io = OpenShift Origin Web
 ldap.kywa.io = FreeIPA
 
-
 ### IPAM
 10.0.0.0/24 - Core Subnet
 10.0.0.1 - Router
 10.0.0.5 - DNS/DHCP Server
+10.0.0.6 - Backup DNS/DHCP Server
 10.0.0.7 - FreeIPA
 10.0.0.10 - oVirt Manager
 10.0.0.11-13 - oVirt Cluster

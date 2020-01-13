@@ -10,4 +10,4 @@
 ## Languages
 
 API - Golang
-DB - TBD (possibly Mongo for testing
+DB - TBD (possibly Mongo for testing)
