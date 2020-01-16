@@ -15,3 +15,5 @@
 
 ## Misc
         * [Misc Notes](misc)
+        * [Presentation](PresentationGuide)
+        * [Blog](Blog)
