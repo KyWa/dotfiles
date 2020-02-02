@@ -20,6 +20,7 @@ fi
 export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/
 export TERM=xterm-256color
 export GOPATH=$HOME
+export IFS=`echo -en "\n\b"`
 
 #Windows Docker fix
 if [ -f /mnt/c/Users ];then
@@ -42,6 +43,7 @@ alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 #show dirs and force dir creation
 alias mkdir='mkdir -pv'
+
 #get pub IP
 alias getip='curl http://ipecho.net/plain;echo'
 
