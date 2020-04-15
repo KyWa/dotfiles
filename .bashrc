@@ -17,7 +17,7 @@ else
     export PS1="\[\e[33m\]\W\[\e[m\]> "
 fi
 
-export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/
+export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/:/Users/kylewalker/bin
 export TERM=xterm-256color
 export GOPATH=$HOME
 export IFS=`echo -en "\n\b"`
