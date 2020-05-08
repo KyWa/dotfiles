@@ -16,16 +16,17 @@ fi
 if [[ -f $HOME/.tmux.conf ]];then
         mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
+# Check for existing bash_profile
+if [[ -f $HOME/.bashrc ]];then
+        mv $HOME/.bash_profile $HOME/.bash_profile.bak
+fi
 
 
 # dotfiles and vim
 ln -sv ~/dotfiles/.vimrc ~
 ln -sv ~/dotfiles/.vim ~
-if [[ $SHELL = "/bin/zsh" ]];then
-    ln -sv ~/dotfiles/.bashrc ~/.zshrc
-else
-    ln -sv ~/dotfiles/.bashrc ~
-fi
+ln -sv ~/dotfiles/.bashrc ~
+ln -sv ~/dotfiles/.bash_profile ~
 ln -sv ~/dotfiles/.tmux.conf ~
 
 # ansible configs

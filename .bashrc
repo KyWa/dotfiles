@@ -1,31 +1,18 @@
 # .bashrc
 
-# Source global definitions
-if [[ $SHELL != "/bin/zsh" ]];then
-    if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
-    fi
-fi
-# Features and Global Vars
 umask 002
 set -o vi
-export EDITOR=vim
+bind 'set completion-ignore-case on'
+shopt -s cdspell
+complete -d cd
 
-if [[ $SHELL = "/bin/zsh" ]];then
-    export PS1="%10F%m%f:%11F%1~%f \$ "
-else
-    export PS1="\[\e[33m\]\W\[\e[m\]> "
-fi
-
+export PS1="\[\e[33m\]\W\[\e[m\]> "
 export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/:/Users/kylewalker/bin
-export TERM=xterm-256color
+export TERM="xterm-256color"
 export GOPATH=$HOME
+export EDITOR="vim"
 export IFS=`echo -en "\n\b"`
 
-#Windows Docker fix
-if [ -f /mnt/c/Users ];then
-    export DOCKER_HOST="tcp://localhost:2375"
-fi
 
 # Aliases
 #quality of life for ls and grep
@@ -49,7 +36,7 @@ alias getip='curl http://ipecho.net/plain;echo'
 
 #ssh get rid of annoyances
 alias ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
-alias work='cd /mnt/c/Users/kwalker/Working/'
+alias scp='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
 # Functions
 mcd(){
