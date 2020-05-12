@@ -36,7 +36,7 @@ alias getip='curl http://ipecho.net/plain;echo'
 
 #ssh get rid of annoyances
 alias ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
-alias scp='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+alias scp='scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
 # Functions
 mcd(){
