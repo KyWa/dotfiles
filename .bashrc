@@ -34,6 +34,11 @@ alias mkdir='mkdir -pv'
 #get pub IP
 alias getip='curl http://ipecho.net/plain;echo'
 
+#Use bat instead of cat
+if [ -x "$(command -v bat)" ];then
+    alias cat='bat'
+fi
+
 #ssh get rid of annoyances
 alias ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias scp='scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
