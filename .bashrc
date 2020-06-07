@@ -51,3 +51,7 @@ mcd(){
 cls(){
     clear
 }
+# Get all files in a dir and list their extensions (if present)
+ext(){
+find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
+}
