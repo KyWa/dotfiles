@@ -1,5 +1,8 @@
 # VMware
 
+    ### NOTE
+    All of these items were from VMWare ESXi 5.5 and not known to work on any other version
+
 ## View inventory
 `vim-cmd vmsvc/getallvms`
 

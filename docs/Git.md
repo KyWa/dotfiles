@@ -3,7 +3,6 @@
 ## Sections
 
 * Branches
-* Head
 * Pull
 * Push
 * Commit

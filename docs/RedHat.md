@@ -2,4 +2,5 @@
 
         * [Red Hat Virtualization](RHV/RHV-index) 
         * [Ansible](Ansible) 
-        * [Openshift](OpenShift/OpenShift-index)
+        * [OpenShift](OpenShift/OpenShift-index)
+        * [Openshift Old Docs](OpenShift/OpenShift-index-old)
