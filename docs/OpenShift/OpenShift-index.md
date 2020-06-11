@@ -4,5 +4,5 @@
 * Monitoring
 * Logging
 * Access
-* GPU
+* [GPU](OpenShift-GPU)
 * Common
