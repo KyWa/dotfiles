@@ -1,7 +1,6 @@
 # TODO
 
 ## HomeLab
-create minecraft backup/rotate scrit
-
+deploy OKD
 deploy AWX
 deploy Gitlab
