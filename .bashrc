@@ -34,6 +34,11 @@ alias mkdir='mkdir -pv'
 #get pub IP
 alias getip='curl http://ipecho.net/plain;echo'
 
+#Git quick
+alias gs='git status'
+alias gp='git pull'
+alias gw='git commit'
+
 #Use bat instead of cat
 if [ -x "$(command -v bat)" ];then
     alias cat='bat'
