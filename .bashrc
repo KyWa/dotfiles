@@ -31,6 +31,9 @@ alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 #show dirs and force dir creation
 alias mkdir='mkdir -pv'
 
+#Ansible Aliases
+alias ap="ansible-playbook --vault-password-file=~/.vault-pass"
+
 #get pub IP
 alias getip='curl http://ipecho.net/plain;echo'
 
