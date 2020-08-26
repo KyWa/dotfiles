@@ -1,6 +1,6 @@
 # TODO
 
 ## HomeLab
-deploy OKD
+deploy OKD - done
 deploy AWX
-deploy Gitlab
+deploy Gitlab - done
