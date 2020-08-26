@@ -47,6 +47,10 @@ if [ -x "$(command -v bat)" ];then
     alias cat='bat'
 fi
 
+#Use bat instead of cat (Debian systems)
+if [ -x "$(command -v batcat)" ];then
+    alias cat='batcat'
+fi
 #ssh get rid of annoyances
 alias ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias scp='scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
