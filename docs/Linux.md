@@ -81,10 +81,9 @@ username = <username>
 `/etc/profile` and `~/.bash_profile` are used for interactive shells. AKA being logged into the terminal/shell and using it. `/etc/bashrc` and `~/.bashrc` are used for both and only for non-interactive (shell scripts, one off ssh commands etc..).
 
 ### `jq`
+`jq -r ".itme.'nested.item'"`
 
-`jq ".[] | { domainname: .name, nameservers: .nameServers[0]}"`
-
-This will return the .name string and the .nameServers string and put them on seperate lines
+For nested items that contain `.` in their field must put items in quotes as seen above.
 
 ### Quickly get system IP
 `hostname -I | awk '{print $1}'` gets ip in clean format of machine

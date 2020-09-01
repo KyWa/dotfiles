@@ -106,7 +106,7 @@ This step will get the needed repositories installed onto your machine. As you c
 When this has completed, you should be able to run a container and test its functionality. For this first test (to make sure all the pegs are in the right holes), we will be testing as `root`. After this test is successful we will install an SELinux module and setup the system to use SELinux to allow Users to run GPU containers. For this first test, we will run it like so:
 
 ```sh
-[root@rhel8]: podman --privileged run docker.io/mirrorgooglecontainers/cuda-vector-add:v0.1
+[root@rhel8]: podman run --privileged docker.io/mirrorgooglecontainers/cuda-vector-add:v0.1
 [Vector addition of 50000 elements]
 Copy input data from the host memory to the CUDA device
 CUDA kernel launch with 196 blocks of 256 threads
