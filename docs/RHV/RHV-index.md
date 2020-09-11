@@ -33,6 +33,7 @@ A storage environment for RHV should include the following configuration:
 * If using a SAN, multiple HBAs (FC) or initiators (iSCSI) should be used to provide multiple paths to the SAN. Make sure you use the same make, model, firmware version, and driver versions in the same systems and clusters to ensure consistent performance and ease troubleshooting.
 * Consider using SAN-based boot if there is already a SAN available to store VMs. This configuration avoids issues related to a local host's storage and improves performance on tasks like hypervisor images cloning, speeding up virtual machine deployment times.
 * GlusterFS is a scalable network based filesystem, GlusterFS relies heavily on network performance requiring high throughput NICs/network devices.
+* Storage is required to be 512b block size. This is considered Legacy in most storage platforms and most drives/storage platforms have the capability to enable 512e or 512 Emulation. The default block size for most storage devices is 4K and most drives found are now 4K native with 512e support.
 
 ### Networking Requirements
 

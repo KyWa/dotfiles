@@ -122,3 +122,7 @@ Highlight the lines you want with visual block mode `V` and then hit `:` and `:'
 
 ### KVM
 With a bridge interface, to get traffic through the firewall (replace bridge0 with actual bridge name): `firewall-cmd --permanent --direct --passthrough ipv4 -I FORWARD -i bridge0 -j ACCEPT`
+
+### HTPasswd
+Create/Update a user password using htpassword auth
+`htpasswd /etc/origin/master/htpasswd username`
