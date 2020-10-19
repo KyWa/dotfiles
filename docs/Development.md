@@ -6,5 +6,4 @@ Notes on Syntax, cool blocks, ideas etc..
 * [Powershell](Powershell)
 * [MongoDB](MongoDB)
 * [Git](Git)
-* Flask
 * [Python](Python)

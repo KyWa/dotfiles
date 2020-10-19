@@ -99,16 +99,16 @@ Granting access to these RBAC objects can be done via `oc policy`. Removal of ac
 
 ```bash
 oc policy add-role-to-user CLUSTER_ROLE/ROLE USER -n NAMESPACE
-oc policy add-cluster-role-to-user CLUSTER_ROLE/ROLE USER
+oc adm policy add-cluster-role-to-user CLUSTER_ROLE/ROLE USER
 
 oc policy add-role-to-group CLUSTER_ROLE/ROLE GROUP -n NAMESPACE
-oc policy add-cluster-role-to-group CLUSTER_ROLE/ROLE GROUP
+oc adm policy add-cluster-role-to-group CLUSTER_ROLE/ROLE GROUP
 
 oc policy remove-role-from-user CLUSTER_ROLE/ROLE USER -n NAMESPACE
-oc policy remove-cluster-role-from-user CLUSTER_ROLE/ROLE USER
+oc adm policy remove-cluster-role-from-user CLUSTER_ROLE/ROLE USER
 
 oc policy remove-role-from-group CLUSTER_ROLE/ROLE GROUP -n NAMESPACE
-oc policy remove-cluster-role-from-group CLUSTER_ROLE/ROLE GROUP
+oc adm policy remove-cluster-role-from-group CLUSTER_ROLE/ROLE GROUP
 ```
 
 To remove ALL bindings for a user in a namespace: `oc policy remove-user USER -n NAMESPACE`
