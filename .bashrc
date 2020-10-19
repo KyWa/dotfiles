@@ -15,13 +15,14 @@ export IFS=`echo -en "\n\b"`
 
 
 # Aliases
-#quality of life for ls and grep
+#mac specific checks
 if [ -f /etc/os-release ];then
     # if on main system add in color
     alias ls='ls -Fh --color=auto'
 else
     # if on macbook don't (throws errors)    
     alias ls='ls -FhG'
+    alias python="/usr/local/bin/python"
 fi
 alias grep='grep --color=auto'
 
