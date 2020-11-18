@@ -126,3 +126,6 @@ With a bridge interface, to get traffic through the firewall (replace bridge0 wi
 ### HTPasswd
 Create/Update a user password using htpassword auth
 `htpasswd /etc/origin/master/htpasswd username`
+
+### Base64 Encoding / Kube Secrets
+`base64 -w 0` will remove word wrap for longer strings
