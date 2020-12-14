@@ -40,4 +40,4 @@ colorscheme gruvbox
 set background=dark 
 
 " vimwiki/vimwiki
-let g:vimwiki_list = [{'path': '~/dotfiles/docs/', 'syntax': 'markdown', 'ext':'.md'},{'path': '~/Documents/Engagements', 'syntax': 'markdown', 'ext':'.md'}]
+let g:vimwiki_list = [{'path': '~/dotfiles/docs/', 'syntax': 'markdown', 'ext':'.md'},{'path': '~/engagements', 'syntax': 'markdown', 'ext':'.md'}]
