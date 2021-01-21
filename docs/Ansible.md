@@ -7,6 +7,7 @@ Ansible users create hihg-level *plays* to ensure a group of hosts are in a part
 * [Conditionals](Ansible/Conditionals)
 * [Inventories, Hosts and Groups](Ansible/Inventories)
 * [Facts and Variables](Ansible/FactsAndVars)
+* [Playbooks](Ansible/Playbooks)
 
 
 #### Debug
@@ -29,6 +30,8 @@ ask_pass = false
 become = true
 become_user = root
 ```
+
+Custom modules can be used by adding their location in the ansible.cfg files via `library = /usr/share/my_modules`. They are also searched for in the value of the environment variable `ANSIBLE_LIBRARY`.
 
 ## Vault
 
