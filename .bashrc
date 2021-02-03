@@ -15,7 +15,7 @@ export IFS=`echo -en "\n\b"`
 
 
 # Aliases
-#mac specific checks
+# mac specific checks
 if [ -f /etc/os-release ];then
     # if on main system add in color
     alias ls='ls -Fh --color=auto'
@@ -24,35 +24,38 @@ else
     alias ls='ls -FhG'
     alias python="/usr/local/bin/python"
 fi
+
 alias grep='grep --color=auto'
 
-#better process checking
+# better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
-#show dirs and force dir creation
+# show dirs and force dir creation
 alias mkdir='mkdir -pv'
 
-#Ansible Aliases
+# Ansible Aliases
 alias ap="ansible-playbook --vault-password-file=~/.vault-pass"
+alias avv="ansible-vault view --vault-password-file=~/.vault-pass"
 
-#get pub IP
+# get pub IP
 alias getip='curl http://ipecho.net/plain;echo'
 
-#Git quick
+# Git quick
 alias gs='git status'
 alias gp='git pull'
 alias gc='git commit'
 
-#Use bat instead of cat
+# Use bat instead of cat
 if [ -x "$(command -v bat)" ];then
     alias cat='bat'
 fi
 
-#Use bat instead of cat (Debian systems)
+# Use bat instead of cat (Debian systems)
 if [ -x "$(command -v batcat)" ];then
     alias cat='batcat'
 fi
-#ssh get rid of annoyances
+
+# ssh get rid of annoyances
 alias ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias scp='scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
@@ -64,10 +67,13 @@ mcd(){
 cls(){
     clear
 }
+
 # Get all files in a dir and list their extensions (if present)
 ext(){
 find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
 }
+
+# Get all objects in a namespace by first getting all api objects that can be gathered
 ocga() {
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
     echo "Resource:" $i
