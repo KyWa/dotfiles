@@ -8,6 +8,7 @@ Ansible users create hihg-level *plays* to ensure a group of hosts are in a part
 * [Inventories, Hosts and Groups](Ansible/Inventories)
 * [Facts and Variables](Ansible/FactsAndVars)
 * [Playbooks](Ansible/Playbooks)
+* [Tower](Tower)
 
 
 #### Debug
