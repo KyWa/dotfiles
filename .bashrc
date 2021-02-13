@@ -44,8 +44,8 @@ alias getip='curl http://ipecho.net/plain;echo'
 
 # Docker things
 alias drm="docker rm $(docker ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')"
-alias aenv="docker run -it -v ${PWD}:/work -v ~/.ssh:/root/.ssh ansible-env /bin/bash"
-alias genv="docker run -it -v ${PWD}:/work go-env /bin/bash"
+alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh ansible-env /bin/bash'
+alias genv='docker run -it -v `PWD`:/work go-env /bin/bash'
 
 # Git quick
 alias gs='git status'
