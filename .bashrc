@@ -25,7 +25,9 @@ else
     alias python="/usr/local/bin/python"
 fi
 
+# quality of life things
 alias grep='grep --color=auto'
+alias gh='history | grep'
 
 # better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
@@ -39,6 +41,11 @@ alias avv="ansible-vault view --vault-password-file=~/.vault-pass"
 
 # get pub IP
 alias getip='curl http://ipecho.net/plain;echo'
+
+# Docker things
+alias drm="docker rm $(docker ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')"
+alias aenv="docker run -it -v ${PWD}:/work -v ~/.ssh:/root/.ssh ansible-env /bin/bash"
+alias genv="docker run -it -v ${PWD}:/work go-env /bin/bash"
 
 # Git quick
 alias gs='git status'
