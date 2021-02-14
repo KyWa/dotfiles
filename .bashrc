@@ -43,9 +43,8 @@ alias avv="ansible-vault view --vault-password-file=~/.vault-pass"
 alias getip='curl http://ipecho.net/plain;echo'
 
 # Docker things
-alias drm="docker rm $(docker ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')"
-alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh ansible-env /bin/bash'
-alias genv='docker run -it -v `PWD`:/work go-env /bin/bash'
+alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansible-env:2.10 /bin/bash'
+alias genv='docker run -it -v `PWD`:/work quay.io/kywa/go-env:1.15 /bin/bash'
 
 # Git quick
 alias gs='git status'
@@ -86,4 +85,8 @@ ocga() {
     echo "Resource:" $i
     kubectl -n ${1} get --ignore-not-found ${i}
   done
+}
+
+drm() {
+  docker rm $(docker ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')
 }
