@@ -1,7 +1,7 @@
 # ToDo List?!
 
-DigitalOcean -- Kube
-GitHub -- Actions
-Terraform -- Deploy DO Kube
-LetsEncrypt
-CodeServer on Kube
+- [ ] DigitalOcean -- Kube
+- [ ] GitHub -- Actions
+- [ ] Terraform -- Deploy DO Kube
+- [ ] CodeServer on Kube
+- [ ] MineOps
