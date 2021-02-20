@@ -1,5 +1,7 @@
 # Journal Index
 
+# Diary
+
 ## 2021
 
 ### February
