@@ -56,3 +56,5 @@ var="{{ lookup( 'env', 'HOME') }}"
 
 * `rescue` - Defines the tasks to run if the tasks defined in the block clause fail.
 * `always` - Defines the tasks that will always run independently of the success or failure of tasks defined in the block and rescue clauses.
+
+You cannot use `{{ inventory_dir }}` if targeting localhost as your host gorup.
