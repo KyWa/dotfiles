@@ -31,3 +31,10 @@ oc adm new-project openshift-* (to create a project prefixed with openshift, you
 oc policy who-can VERB KIND (find out who can do what)
 oc policy --as=USER/GROUP can-i VERB KIND
 ```
+
+## 3.11 Things
+Kubelet Arguments for image pulls
+```yaml
+image-pull-progress-deadline:
+       - "5m"
+```

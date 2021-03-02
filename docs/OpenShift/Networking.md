@@ -8,6 +8,35 @@ The common CNI plug-ins used in OpenShift are `OpenShiftSDN`, `OVN-Kubernetes`, 
 
 The `OpenShiftSDN` network provider uses `Open vSwitch` (OVS) to connect pods on the same node and `Virtual Extensible LAN` (VXLAN) tunneling to connect nodes. `OVN-Kubernetes` uses `Open Virtual Network` (OVN) to manage the cluster network. OVN extends OVS with virtual network abstractions. `Kuryr` provides networking through the Neutron and Octavia Red hat OpenStack Platform services.
 
+## DNS
+
+The DNS Operator deploys and runs a DNS server managed by CoreDNS (lightweight DNS server written in GoLang). The DNS operator provides DNS name resolution between pods, which enables services to discover their endpoints. Everytime a new application is created, OpenShift configures the pods so they can contact the CoreDNS service IP for DNS resolution.
+
+The DNS operator is responsible for the following:
+* creating a default cluster DNS name (`cluster.local`)
+* Assigning DNS names to servieces that are defined (`db.backend.svc.cluster.local`)
+
+## Cluster Network Operator
+
+OCP uses the Cluster Network Operator for managing the SDN. This includes the network CIDR to use, the network provider, and the IP address pools. Configuration of the Cluster Network Operator is done before installation, although it is possible to migrate from the OpenShift SDN default CNI network provider to the OVN-Kubernetes network provider.
+
+The SND is managed by the CRD: `Network.config.openshift.io` and can be viewed via (some output omitted):
+
+```yaml
+[admin@cluster ~]$ oc get network/cluster -o yaml
+apiVersion: config.openshift.io/v1
+kind: Network
+spec:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  externalIP:
+    policy: {}
+  networkType: OpenshiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+```
+
 ## Routers
 
 Provides automated load balancing to pods for external clients. Routers (and the actual Routes) can autoroute around unhealthy pods. The routing layer is pluggable and extensible. Can include non-OpenShift software routers.
