@@ -71,6 +71,7 @@ mcd(){
     mkdir $1
     cd $1
 }
+# clear screen because i"m lazy
 cls(){
     clear
 }
