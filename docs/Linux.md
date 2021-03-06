@@ -1,5 +1,9 @@
 # Linux Stuff
 
+## Podman
+
+`/etc/containers` is the configuration directory
+
 ## tmux
 
 Main control combo: `ctrl+b`. combo+command
