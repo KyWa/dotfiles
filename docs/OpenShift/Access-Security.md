@@ -124,6 +124,8 @@ oc annotate clusterrolebinding self-provisioners rbac.authorization.kubernetes.i
 oc adm policy remove-cluster-role-from-group self-provisioner system:authenticated:oauth
 ```
 
+A role and binding can be created to access CRDs/apiGroups in the cluster, but the rolebinding must target `namespace` or the binding will default to looking at `clusterrole` instead of `role`. Note: You can only use ServiceAccounts or Users in the subsequent fields for the bindings
+
 ## Pod Security
 
 ### ServiceAccounts
