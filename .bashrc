@@ -98,3 +98,13 @@ dclean() {
   docker stop $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
   docker rm $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
 }
+
+# Notes
+engnotes() {
+    NUMBER=$(date | awk '{print $2 " " $3}')
+    cd ~/engagements
+    git add XOM/Journal.md
+    git commit -m "$NUMBER notes"
+    git push
+    cd ~
+}
