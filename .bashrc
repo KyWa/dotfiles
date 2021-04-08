@@ -25,6 +25,10 @@ else
     alias python="/usr/local/bin/python"
 fi
 
+if [ -f /mnt/c/Users ];then
+    alias docker="sudo docker"
+fi
+
 # quality of life things
 alias grep='grep --color=auto'
 alias gh='history | grep'
