@@ -47,6 +47,9 @@ alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansi
 alias genv='docker run -it -v `PWD`:/work quay.io/kywa/go-env:1.15 /bin/bash'
 alias dps='docker ps -a'
 
+# Kubernetes/OpenShift
+alias kg='kubectl get'
+
 # Git quick
 alias gs='git status'
 alias gp='git pull'
