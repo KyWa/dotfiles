@@ -49,6 +49,7 @@ alias getip='curl http://ipecho.net/plain;echo'
 # Docker things
 alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansible-env:2.10 /bin/bash'
 alias genv='docker run -it -v `PWD`:/work quay.io/kywa/go-env:1.15 /bin/bash'
+alias code='docker run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:latest'
 alias dps='docker ps -a'
 
 # Git quick
