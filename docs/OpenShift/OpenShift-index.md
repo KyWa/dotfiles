@@ -3,7 +3,7 @@
 * [Disconnected](Disconnected)
 * [Resource Management](ResourceManagement)
 * [Logging and Monitoring](Logging-Monitoring)
-* [Access and Security](Access-Security)
+* [Authentication and Authorization](Authentication-Authorization)
 * [Networking](Networking)
 * [ControlPlane](ControlPlane)
 * [GPU](GPU)

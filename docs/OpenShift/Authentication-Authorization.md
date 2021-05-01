@@ -1,4 +1,4 @@
-# OpenShift Access and Security
+# OpenShift Authentication and Authorization
 
 ## Components
 
