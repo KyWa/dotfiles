@@ -10,6 +10,8 @@ By default the kubeadmin user exists and can be used to access the cluster. To d
 
 Groups treat users as strings. No validation occurs to check if users are valid and exist.
 
+If a request does not present an access token or certificate, then the authentication layers assigns it the `system:anonymous` virtual user, and the `system:unauthenticated` virtual group.
+
 ## Authentication
 
 ### HTPasswd
