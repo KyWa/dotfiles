@@ -35,6 +35,7 @@ if &term =~ '256color'
 endif
 
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
+autocmd FileType tf setlocal ai ts=2 sw=2 et
 
 colorscheme gruvbox
 set background=dark 
