@@ -28,6 +28,10 @@ if [ -f /mnt/c/Users ];then
     alias docker="sudo docker"
 fi
 
+if [ -f /etc/redhat-release ];then
+    alias docker="podman"
+fi
+
 # quality of life things
 alias grep='grep --color=auto'
 alias gh='history | grep'
@@ -48,7 +52,7 @@ alias getip='curl http://ipecho.net/plain;echo'
 # Docker things
 alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansible-env:latest /bin/bash'
 alias genv='docker run -it -v `PWD`:/work quay.io/kywa/go-env:latest /bin/bash'
-alias code='docker run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:latest'
+alias code='docker run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:v3.11-ubi'
 alias dps='docker ps -a'
 
 # Kubernetes/OpenShift
