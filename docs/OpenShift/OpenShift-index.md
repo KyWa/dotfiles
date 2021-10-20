@@ -38,3 +38,19 @@ Kubelet Arguments for image pulls
 image-pull-progress-deadline:
        - "5m"
 ```
+
+## Red Hat Registries
+The [Red Hat Container Catalog](https://access.redhat.com/containers) presents a unified view of three underlying container registries:
+
+### Red Hat Container Registry at [registry.access.redhat.com](registry.access.redhat.com)
+It is a public registry that hosts images for Red Hat products and requires no authentication. Note that, while this container registry is public, most of the container images that Red Hat provides require that the user has an active Red Hat product subscription and that they comply with the product's End-User Agreement (EUA). Only a subset of the images available from Red Hat's public registry are freely redistributable. These are images based on the Red Hat Enterprise Linux Universal Base Images (UBI).
+
+### Red Hat terms-based registry at [registry.redhat.io](registry.redhat.io)
+It is a private registry that hosts images for Red Hat products, and requires authentication. To pull images from it, you need to authenticate with your Red Hat Customer Portal credentials. For shared environments, such as OpenShift or CI/CD pipelines, you can create a service account, or authentication token, to avoid exposing your personal credentials.
+
+### Red Hat partner registry at [registry.connect.redhat.com](registry.connect.redhat.com)
+It is a private registry that hosts images for third-party products from certified partners. It also needs your Red Hat Customer Portal credentials for authentication. They may be subject to subscription or licenses at the partner's discretion.
+
+`oc create secret docker-registry NAME`
+`oc secrets link SERVICEACCOUNT NAME --for pull`
+`oc secrets link builder NAME`
