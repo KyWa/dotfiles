@@ -17,7 +17,7 @@ if [[ -f $HOME/.tmux.conf ]];then
         mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
 # Check for existing bash_profile
-if [[ -f $HOME/.bashrc ]];then
+if [[ -f $HOME/.bash_profile ]];then
         mv $HOME/.bash_profile $HOME/.bash_profile.bak
 fi
 
@@ -31,6 +31,11 @@ ln -sv ~/dotfiles/.tmux.conf ~
 
 # ansible configs
 ln -sv ~/dotfiles/.ansible.cfg ~
+
+# kube autocomplete
+if [ ! -f /etc/os-release ];then
+    cp kube-complete /usr/local/etc/bash_completion.d/kubectl
+fi
 
 # tell yourself your done
 echo "All done"
