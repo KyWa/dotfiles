@@ -57,6 +57,9 @@ alias dps='docker ps -a'
 
 # Kubernetes/OpenShift
 alias kg='kubectl get'
+alias kp='kubectl config set-context --current --namespace'
+alias oca='oc apply -f'
+alias oga='oc get all'
 
 # Git quick
 alias gs='git status'
