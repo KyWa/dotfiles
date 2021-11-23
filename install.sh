@@ -32,10 +32,5 @@ ln -sv ~/dotfiles/.tmux.conf ~
 # ansible configs
 ln -sv ~/dotfiles/.ansible.cfg ~
 
-# kube autocomplete
-if [ ! -f /etc/os-release ];then
-    cp kube-complete /usr/local/etc/bash_completion.d/kubectl
-fi
-
 # tell yourself your done
 echo "All done"
