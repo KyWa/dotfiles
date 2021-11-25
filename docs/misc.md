@@ -6,3 +6,6 @@ Certs for registry.access.redhat.com do not get deployed. Get them via:
 
 ## Mac DNS failure on single host
 `sudo killall -HUP mDNSResponder`
+
+## Synology NFS for oVirt
+Share must have `36:36` permissions
