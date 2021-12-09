@@ -85,6 +85,7 @@ mcd(){
     mkdir $1
     cd $1
 }
+
 # clear screen because i"m lazy
 cls(){
     clear
@@ -109,8 +110,11 @@ drm() {
 }
 
 dclean() {
-  docker stop $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
-  docker rm $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
+  isk8s=$(docker ps | grep k8s | grep -v CONTAINER)
+  if [[ -z $isk8s ]];then
+    docker stop $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
+    docker rm $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
+  fi
 }
 
 # Notes

@@ -24,6 +24,7 @@ syn on
 set completeopt=menu,longest,preview
 set confirm
 set number
+set hlsearch
 set wrap
 set linebreak
 set nolist
