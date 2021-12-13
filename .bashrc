@@ -34,7 +34,6 @@ fi
 
 # quality of life things
 alias grep='grep --color=auto'
-alias gh='history | grep'
 
 # better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
