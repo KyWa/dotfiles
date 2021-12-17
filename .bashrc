@@ -8,7 +8,8 @@ complete -d cd
 export PS1="\[\e[33m\]\W\[\e[m\]> "
 export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/:/Users/kylewalker/bin
 export TERM="xterm-256color"
-export GOPATH=$HOME
+export GOPATH=$HOME/Working/golibs
+export GOPATH=$GOPATH:$HOME/Working/gocode
 export EDITOR="vim"
 export IFS=`echo -en "\n\b"`
 
