@@ -1,3 +1,1 @@
 # OpenShift Disconnected
-
-##

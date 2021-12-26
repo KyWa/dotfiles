@@ -7,6 +7,7 @@ Limits can include:
 * amount of resources (c/m/s) requested across objects in project
 * based on specified label
     * ex: limit dept of devs or env such as `test`
+    * 
 ## Quotas
 
 ResourceQuota object enumerates hard resource usage limits per project

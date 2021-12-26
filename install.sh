@@ -59,4 +59,5 @@ case $repo_install in
     [nN][oO]|[nN])
         echo "All done!"
         exit
+        ;;
 esac

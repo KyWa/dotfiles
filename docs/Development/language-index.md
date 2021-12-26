@@ -1,10 +1,9 @@
-# Programming Notes
+# Development Notes Index
 
 Notes on Syntax, cool blocks, ideas etc..
 
+## Languages
 * [Golang](Golang)
 * [Powershell](Powershell)
-* [MongoDB](MongoDB)
-* [Git](Git)
 * [Python](Python)
-* [Tekton](Tekton)
+* [BASH](BASH)

@@ -1,11 +1,11 @@
 # Notes
 
 ## Development
-        * [Development](Development)
+        * [Languages](Development/language-index)
+        * [Applications](Development/application-index)
 ## Vendors
         * [VMWare](VMWare)
         * [Red Hat](RedHat)
-        * [Hashicorp](Hashicorp/Hashicorp-index)
 ## General
         * [Certifications](Certification)
         * [Linux](Linux)

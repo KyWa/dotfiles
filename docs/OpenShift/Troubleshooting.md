@@ -1,6 +1,8 @@
 # OCP Troubleshooting
 
+
 ## Stuck ServiceInstance
+Primarily an issue with OCP3
 
 `oc edit serviceinstance <name> -n <namespace>`
 

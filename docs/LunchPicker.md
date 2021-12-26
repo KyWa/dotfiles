@@ -1,5 +1,7 @@
 # LunchPicker
 
+Baseline exists here and was used for some time: https://github.com/KyWa/pylunch
+
 ## Thoughts
     1. Flask Backend
     2. responsive front-end

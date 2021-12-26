@@ -4,10 +4,10 @@ Ansible has two types of machines in its architecture: control nodes and managed
 
 Ansible users create hihg-level *plays* to ensure a group of hosts are in a particular state. A lpay performs a series of *tasks* on the hosts in the order specified by the play. These plays are written in YAML. A file that contains one or more plays is called a *playbook*. Each task runs a *module*, a small piece of code (written in Python, Powershell, or some other language) with specific arguments. Tasks, plays, and playbooks are designed to be idempotent.
 
-* [Conditionals](Ansible/Conditionals)
-* [Inventories, Hosts and Groups](Ansible/Inventories)
-* [Facts and Variables](Ansible/FactsAndVars)
-* [Playbooks](Ansible/Playbooks)
+* [Conditionals](Conditionals)
+* [Inventories, Hosts and Groups](Inventories)
+* [Facts and Variables](FactsAndVars)
+* [Playbooks](Playbooks)
 * [Tower](Tower)
 
 

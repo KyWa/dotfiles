@@ -1,4 +1,4 @@
 # The Wiki of Wikis
         * [Notes](notes)
-        * [Apps](Apps)
+        * [App Ideas](Apps)
         * [TODO](TODO)
