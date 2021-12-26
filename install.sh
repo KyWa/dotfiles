@@ -60,6 +60,3 @@ case $repo_install in
         echo "All done!"
         exit
 esac
-
-      
-
