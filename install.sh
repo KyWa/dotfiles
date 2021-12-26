@@ -2,25 +2,29 @@
 
 # Check for existing Bashrc
 if [[ -f $HOME/.bashrc ]];then
-        mv $HOME/.bashrc $HOME/.bashrc.bak
+    mv $HOME/.bashrc $HOME/.bashrc.bak
 fi
 # Check for existing Vimrc
 if [[ -f $HOME/.vimrc ]];then
-        mv $HOME/.vimrc $HOME/.vimrc.bak
+    mv $HOME/.vimrc $HOME/.vimrc.bak
 fi
 # Check for existing Ansiblecfg
 if [[ -f $HOME/.ansible.cfg ]];then
-        mv $HOME/.ansible.cfg $HOME/.ansible.cfg.bak
+    mv $HOME/.ansible.cfg $HOME/.ansible.cfg.bak
 fi
 # Check for existing TMUX Config
 if [[ -f $HOME/.tmux.conf ]];then
-        mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
+    mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
 # Check for existing bash_profile
 if [[ -f $HOME/.bash_profile ]];then
-        mv $HOME/.bash_profile $HOME/.bash_profile.bak
+    mv $HOME/.bash_profile $HOME/.bash_profile.bak
 fi
-
+# Check and setup for Mac OS
+os=`uname`
+if [[ ${os} == Darwin ]];then
+    ./mac_setup.sh
+fi
 
 # dotfiles and vim
 ln -sv ~/dotfiles/.vimrc ~
@@ -32,5 +36,30 @@ ln -sv ~/dotfiles/.tmux.conf ~
 # ansible configs
 ln -sv ~/dotfiles/.ansible.cfg ~
 
-# tell yourself your done
-echo "All done"
+# Add KyWa repositories
+echo "Would you like to add KyWa repositories?: y/n"
+read repo_install
+
+case $repo_install in
+    [yY][eE][sS][|[yY])
+        mkdir -p ~/Working/kywa
+        cd ~/Working/kywa
+        git clone git@github.com:kywa/kywa.git
+        git clone git@github.com:kywa/kywa-lab
+        git clone git@github.com:kywa/kywa-ahoy.git
+        git clone git@github.com:kywa/mineops.git
+        git clone git@github.com:kywa/kywa-kube-dd
+        git clone git@github.com:kywa/kywa-argo
+        git clone git@github.com:kywa/dockerbuilds
+        git clone git@github.com:kywa/kywa-website
+        git clone git@github.com:kywa/yamlzone
+        git clone git@github.com:kywa/kywa-learn
+        echo "All done"
+        ;;
+    [nN][oO]|[nN])
+        echo "All done!"
+        exit
+esac
+
+      
+
