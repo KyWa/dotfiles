@@ -4,7 +4,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ## Install core brew packages
-brew install bash vim tmux bat yamllint tig jq
+brew install bash vim tmux bat yamllint tig jq ansible
 
 ## Set Bash as primary shell (will require sudo password)
 sudo echo "/usr/local/bin/bash" >> /etc/shells
