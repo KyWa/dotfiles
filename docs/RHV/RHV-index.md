@@ -9,6 +9,9 @@
 * [Components](RHV-Components)
 * [Troubleshooting](RHV-Troubleshooting)
 
+## Connect to oVirt/RHV with Virsh
+
+`virsh -c qemu:///system?authfile=/etc/ovirt-hosted-engine/virsh_auth.conf`
 
 ### RHV Supporting Infrastructure
 
