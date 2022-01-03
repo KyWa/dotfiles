@@ -4,15 +4,15 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ## Install core brew packages
-brew install bash vim tmux bat yamllint tig jq ansible openjdk openssl libxml2 asciinema
+brew install bash vim tmux bat yamllint tig jq ansible openjdk openssl libxml2 asciinema npm
 
 ## Install oVirt-SDK
-#export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
-#export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
-#pip3 install --global-option=build_ext --global-option="-I/usr/local/Cellar/libxml2/2.9.12/include/libxml2" ovirt-engi
-#ne-sdk-python
-#pip3 uninstall pycurl
-#pip3 install pycurl --global-option="--with-openssl"
+export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
+export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
+pip3 install --global-option=build_ext --global-option="-I/usr/local/Cellar/libxml2/2.9.12/include/libxml2" ovirt-engi
+ne-sdk-python
+pip3 uninstall pycurl
+pip3 install pycurl --global-option="--with-openssl"
 
 ## Set Bash as primary shell (will require sudo password)
 sudo echo "/usr/local/bin/bash" >> /etc/shells
