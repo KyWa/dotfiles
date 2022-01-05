@@ -4,7 +4,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ## Install core brew packages
-brew install bash vim tmux bat yamllint tig jq ansible openjdk openssl libxml2 asciinema npm
+brew install bash vim tmux bat yamllint tig jq ansible openjdk openssl libxml2 asciinema npm kubernetes-cli
 
 ## Install oVirt-SDK
 export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
