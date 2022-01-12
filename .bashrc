@@ -54,7 +54,6 @@ alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansi
 alias genv='docker run -it -v `PWD`:/work quay.io/kywa/go-env:latest /bin/bash'
 alias code='docker run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:v3.11-ubi'
 alias dps='docker ps -a'
-alias dimage='docker images | grep -v k8s | grep -v "docker/desktop" | grep -v ascii '
 
 # Kubernetes/OpenShift
 alias kg='kubectl get'
@@ -116,6 +115,11 @@ dclean() {
     docker stop $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
     docker rm $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
   fi
+}
+
+makegif() {
+  cd $HOME/Pictures/mineOps
+  docker run --rm -v $PWD:/data asciinema/asciicast2gif -s .75 $1.cast $1.gif
 }
 
 # Notes
