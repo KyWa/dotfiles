@@ -5,14 +5,22 @@ set -o vi
 shopt -s cdspell
 complete -d cd
 
-export PS1="\[\e[33m\]\W\[\e[m\]> "
+# Add current k8s context to PS1
+k8s_context(){
+    CONTEXT=$(cat ~/.kube/config 2>/dev/null | grep -o '^current-context: [^/]*' | cut -d ' ' -f2)
+
+    if [ -n "$CONTEXT" ];then
+        echo "(k8s:${CONTEXT})"
+    fi
+}
+
+export PS1="\[\e[33m\]\W\[\e[m\]\[\e[36m\] $(k8s_context)\[\e[m\] > "
 export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/:/Users/kylewalker/bin
 export TERM="xterm-256color"
 export GOPATH=$HOME/Working/golibs
 export GOPATH=$GOPATH:$HOME/Working/gocode
 export EDITOR="vim"
 export IFS=`echo -en "\n\b"`
-
 
 # Aliases
 # mac specific checks
