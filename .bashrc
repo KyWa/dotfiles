@@ -86,6 +86,15 @@ mcd(){
     cd $1
 }
 
+viewcert() {
+    openssl crl2pkcs7 -nocrl -certfile $1 | openssl pkcs7 -print_certs -text -noout | less
+}
+
+makegif() {
+  cd $HOME/Pictures/mineOps
+  docker run --rm -v $PWD:/data asciinema/asciicast2gif -s .75 $1.cast $1.gif
+}
+
 # clear screen because i"m lazy
 cls(){
     clear
@@ -115,11 +124,6 @@ dclean() {
     docker stop $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
     docker rm $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
   fi
-}
-
-makegif() {
-  cd $HOME/Pictures/mineOps
-  docker run --rm -v $PWD:/data asciinema/asciicast2gif -s .75 $1.cast $1.gif
 }
 
 # Notes
