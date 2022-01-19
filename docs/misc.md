@@ -9,3 +9,11 @@ Certs for registry.access.redhat.com do not get deployed. Get them via:
 
 ## Synology NFS for oVirt
 Share must have `36:36` permissions
+
+## Ghost Blog
+
+### Update Ghost
+`cd /var/www/ghost && ghost update`
+
+### Backup Ghost
+`cd /var/www/ghost && ghost export /mnt/volume_nyc1_01/ghost_backup/blog-export-$(date "+%Y-%m-%d")`
