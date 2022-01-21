@@ -1,4 +1,7 @@
 # .bashrc
+if [ -f /etc/bashrc ];then
+    . /etc/bashrc
+fi
 
 umask 002
 set -o vi
@@ -6,15 +9,9 @@ shopt -s cdspell
 complete -d cd
 
 # Add current k8s context to PS1
-k8s_context(){
-    CONTEXT=$(cat ~/.kube/config 2>/dev/null | grep -o 'namespace: [^/]*' | cut -d ' ' -f2)
-
-    if [ -n "$CONTEXT" ];then
-        echo "(k8s:${CONTEXT})"
-    fi
-}
-
+source ~/.k8sprompt.sh
 export PS1="\[\e[33m\]\W\[\e[m\]\[\e[36m\] $(k8s_context)\[\e[m\] > "
+
 export PATH=$PATH:/usr/local/go/bin/:/home/kwalker/bin/:/Users/kylewalker/bin
 export TERM="xterm-256color"
 export GOPATH=$HOME/Working/golibs
