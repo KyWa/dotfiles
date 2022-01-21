@@ -20,20 +20,23 @@ fi
 if [[ -f $HOME/.bash_profile ]];then
     mv $HOME/.bash_profile $HOME/.bash_profile.bak
 fi
+# Check for existing k8s Prompt
+if [[ -f $HOME/.tmux.conf ]];then
+    mv $HOME/.k8sprompt.sh $HOME/.k8sprompt.sh.bak
+fi
 # Check and setup for Mac OS
 os=`uname`
 if [[ ${os} == Darwin ]];then
     ./mac_setup.sh
 fi
 
-# dotfiles and vim
+# Create symlinks to ~/dotfiles
 ln -sv ~/dotfiles/.vimrc ~
 ln -sv ~/dotfiles/.vim ~
 ln -sv ~/dotfiles/.bashrc ~
 ln -sv ~/dotfiles/.bash_profile ~
 ln -sv ~/dotfiles/.tmux.conf ~
-
-# ansible configs
+ln -sv ~/dotfiles/.k8sprompt.sh ~
 ln -sv ~/dotfiles/.ansible.cfg ~
 
 # Add KyWa repositories
@@ -54,7 +57,7 @@ case $repo_install in
         git clone git@github.com:kywa/kywa-website
         git clone git@github.com:kywa/yamlzone
         git clone git@github.com:kywa/kywa-learn
-        echo "All done"
+        echo "All done!"
         ;;
     [nN][oO]|[nN])
         echo "All done!"

@@ -4,5 +4,7 @@ k8s_context(){
 
     if [ -n "$CONTEXT" ];then
         echo "(k8s:${CONTEXT})"
+    else
+        echo "(k8s:---)"
     fi
 }
