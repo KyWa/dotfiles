@@ -39,6 +39,9 @@ ln -sv ~/dotfiles/.tmux.conf ~
 ln -sv ~/dotfiles/.k8sprompt.sh ~
 ln -sv ~/dotfiles/.ansible.cfg ~
 
+# Get Git Bash Completion
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bas
+
 # Add KyWa repositories
 echo "Would you like to add KyWa repositories?: y/n"
 read repo_install
@@ -64,3 +67,5 @@ case $repo_install in
         exit
         ;;
 esac
+
+source ~/.bash_profile

@@ -3,10 +3,12 @@ if [ -f /etc/bashrc ];then
     . /etc/bashrc
 fi
 
+# General fun
 umask 002
 set -o vi
 shopt -s cdspell
 complete -d cd
+test -f ~/.git-completion.bash && . $_
 
 # Add current k8s context to PS1
 source ~/.k8sprompt.sh
