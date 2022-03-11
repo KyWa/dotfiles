@@ -21,3 +21,7 @@ func main() {
 ```
 
 When doing a reflect on a type, you must use Println to view the result as Printf will not work
+
+### Snippets/Tricks
+
+`go fmt myfile.go` will run `fmt` against the code and "clean" it up.
