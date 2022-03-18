@@ -67,6 +67,7 @@ alias kg='kubectl get'
 alias kp='kubectl config set-context --current --namespace'
 alias oca='oc apply -f'
 alias oga='oc get all'
+alias occlean='oc delete po --field-selector=status.phase!=Running'
 
 # Git quick
 alias gs='git status'
