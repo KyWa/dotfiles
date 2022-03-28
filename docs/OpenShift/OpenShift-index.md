@@ -51,7 +51,11 @@ It is a private registry that hosts images for Red Hat products, and requires au
 ### Red Hat partner registry at [registry.connect.redhat.com](registry.connect.redhat.com)
 It is a private registry that hosts images for third-party products from certified partners. It also needs your Red Hat Customer Portal credentials for authentication. They may be subject to subscription or licenses at the partner's discretion.
 
-#### Give a ServiceAccount a pull secret
+### Give a ServiceAccount a pull secret
 * `oc create secret docker-registry NAME`
 * `oc secrets link SERVICEACCOUNT NAME --for pull`
 * `oc secrets link builder NAME`
+
+### Building Images w/ Permissions
+Ensure files/dirs are owned by the root group as this is what the random UID assigned by OCP will be granted so they can still access things in a container/PVC
+`RUN chgrp -R 0 somedir && chmod -R g=u somedir`
