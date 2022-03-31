@@ -17,3 +17,10 @@ Share must have `36:36` permissions
 
 ### Backup Ghost
 `cd /var/www/ghost && ghost export /mnt/volume_nyc1_01/ghost_backup/blog-export-$(date "+%Y-%m-%d")`
+
+## Asciicinema
+Record Something:
+`asciinema rec -i 2.5 ~/Pictures/blog-media/mineOps/NAME_OF_CLIP.cast`
+
+Convert it to gif:
+`docker run --rm -v $PWD:/data asciinema/asciicast2gif -s 2 NAME_OF_CLIP.cast GIF.gif`
