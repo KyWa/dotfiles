@@ -9,8 +9,7 @@ brew install bash vim tmux bat yamllint tig jq ansible openjdk openssl libxml2 a
 ## Install oVirt-SDK
 export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
 export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
-pip3 install --global-option=build_ext --global-option="-I/usr/local/Cellar/libxml2/2.9.12/include/libxml2" ovirt-engi
-ne-sdk-python
+pip3 install --global-option=build_ext --global-option="-I/usr/local/Cellar/libxml2/2.9.12/include/libxml2" ovirt-engine-sdk-python
 pip3 uninstall pycurl
 pip3 install pycurl --global-option="--with-openssl"
 
@@ -20,3 +19,7 @@ chsh -s /usr/local/bin/bash
 
 ## Set JDK symlink for java usage (will require sudo password)
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
+## Set python/pip symlink for python usage (will require sudo password)
+sudo ln -s /usr/local/bin/python3 /usr/local/bin/python
+sudo ln -s /usr/local/bin/pip3 /usr/local/bin/pip

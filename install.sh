@@ -24,6 +24,7 @@ fi
 if [[ -f $HOME/.tmux.conf ]];then
     mv $HOME/.k8sprompt.sh $HOME/.k8sprompt.sh.bak
 fi
+
 # Check and setup for Mac OS
 os=`uname`
 if [[ ${os} == Darwin ]];then
@@ -43,6 +44,7 @@ ln -sv ~/dotfiles/.ansible.cfg ~
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bas
 
 # Add KyWa repositories
+# Also assumes you pulled this repo with an ssh key
 echo "Would you like to add KyWa repositories?: y/n"
 read repo_install
 
@@ -60,7 +62,7 @@ case $repo_install in
         git clone git@github.com:kywa/kywa-website
         git clone git@github.com:kywa/yamlzone
         git clone git@github.com:kywa/kywa-learn
-        echo "All done!"
+        echo "Repos cloned and all done!"
         ;;
     [nN][oO]|[nN])
         echo "All done!"
