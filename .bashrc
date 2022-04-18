@@ -59,11 +59,12 @@ alias getip='curl http://ipecho.net/plain;echo'
 # Docker things
 alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansible-env:latest /bin/bash'
 alias genv='docker run -it -v `PWD`:/work quay.io/kywa/go-env:latest /bin/bash'
+alias nenv='docker run -it -v `PWD`:/opt/app-root/src registry.access.redhat.com/ubi8/nodejs-16:latest /bin/bash'
 alias code='docker run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:v3.11-ubi'
 alias dps='docker ps -a'
 
 # Kubernetes/OpenShift
-alias kg='kubectl get'
+alias k='kubectl'
 alias kp='kubectl config set-context --current --namespace'
 alias oca='oc apply -f'
 alias oga='oc get all'
