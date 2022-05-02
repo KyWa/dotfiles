@@ -145,3 +145,16 @@ engnotes() {
     git push
     cd ~
 }
+
+newgit() {
+    cd ~/Working/kywa/
+    if [[ -d repo-template ]];then
+        cp -r repo-template $1
+        rm -rf $1/.git
+        cd $1 && git init
+    else
+        git clone https://github.com/KyWa/repo-template $1
+        rm -rf $1/.git
+        cd $1 && git init
+    fi
+}
