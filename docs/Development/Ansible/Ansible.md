@@ -40,6 +40,29 @@ Older versions of Ansible use `--ask-vault-pass` to allow interactivity for Ansi
 
 You can use the --vault-password-file option to specify a file that stores the encryption password in plain text. The password should be a string stored as a single line in the file. `ansible-playbook --vault-password-file=vault-pw-file playbook.yml`
 
+### For AAP/AWX/Tower
+
+`ansible-vault encrypt_string --vault-password-file ~/.vault-pass 'admin@internal' --name ovirt_username`
+
+This will print out something like:
+
+```sh
+ovirt_username: !vault |
+AESVAULLJWADJA)J)(
+```
+
+Tower cannot parse encrypted files when it syncs the inventory, but it can read files that have encrypted values. It will take a Vault credential at runtime to decrypt the secret values. Somewhat of an annoyance, but not a big change unless your environment has hundreds of encrypted files vs encrypted strings in a file.
+
+Dir structure after changes
+
+```
+inventory
+- group_vars
+- - all
+- - - vault
+- - - - secrets.yaml # A plain text file with encrypted values like above
+```
+
 # Misc Notes
 
 `handler`'s work if they are called by a `notify` inside a task. `notify` will only call if a change is made during its run.
