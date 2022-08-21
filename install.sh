@@ -41,7 +41,7 @@ ln -sv ~/dotfiles/.k8sprompt.sh ~
 ln -sv ~/dotfiles/.ansible.cfg ~
 
 # Get Git Bash Completion
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bas
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
 # Add KyWa repositories
 # Also assumes you pulled this repo with an ssh key
