@@ -139,7 +139,7 @@ dclean() {
 engnotes() {
     NUMBER=$(date | awk '{print $2 " " $3}')
     cd ~/engagements
-    git add XOM/
+    git add -A .
     git commit -m "$NUMBER notes"
     git push
     cd ~
