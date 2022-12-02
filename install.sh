@@ -25,7 +25,7 @@ if [[ -f $HOME/.tmux.conf ]];then
     mv $HOME/.k8sprompt.sh $HOME/.k8sprompt.sh.bak
 fi
 
-# Check and setup for Mac OS
+## Check and setup for Mac OS
 os=`uname`
 if [[ ${os} == Darwin ]];then
     ./mac_setup.sh
