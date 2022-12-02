@@ -52,16 +52,14 @@ case $repo_install in
     [yY][eE][sS][|[yY])
         mkdir -p ~/Working/kywa
         cd ~/Working/kywa
-        git clone git@github.com:kywa/kywa.git
-        git clone git@github.com:kywa/kywa-lab
-        git clone git@github.com:kywa/kywa-ahoy.git
-        git clone git@github.com:kywa/mineops.git
-        git clone git@github.com:kywa/kywa-kube-dd
-        git clone git@github.com:kywa/kywa-argo
-        git clone git@github.com:kywa/dockerbuilds
-        git clone git@github.com:kywa/kywa-website
-        git clone git@github.com:kywa/yamlzone
-        git clone git@github.com:kywa/kywa-learn
+        git clone git@github.com:KyWa/dockerbuilds
+        git clone git@github.com:KyWa/kywa.git
+        git clone git@github.com:KyWa/kywa-ahoy.git
+        git clone git@github.com:KyWa/kywa-argo
+        git clone git@github.com:KyWa/kywa-lab
+        git clone git@github.com:KyWa/kywa-learn
+        git clone git@github.com:KyWa/kywa-website
+        git clone git@github.com:KyWa/yamlzone
         echo "Repos cloned and all done!"
         ;;
     [nN][oO]|[nN])
