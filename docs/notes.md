@@ -10,6 +10,7 @@
         * [Certifications](Certification)
         * [Linux](Linux)
         * [Cloud](Cloud)
+        * [JQ Queries](jq-fun)
 ## Misc
         * [Misc Notes](misc)
         * [Presentation](PresentationGuide)
