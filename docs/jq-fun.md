@@ -21,6 +21,11 @@ jq -r '.spec.strategy | to_entries[0].key'
 jq -r '.items[] | select(.spec.template.spec.containers[].image | contains("offending_thing"))' | jq -rs 'unique_by(.metadata.name)[] | .metadata.name'
 ```
 
+## Get name of Deployment/DeploymentConfig (and unique) that matches an either/or check (example is with initContainers and containers, but could be used for checking two things on a single object)
+```
+jq -r '.items[] | select(.spec.template.spec | select((.containers[]?.image | contains("offending_thing")) or (.initContainers[]?.image | contains("offending_thing"))))' | jq -rs 'unique_by(.metadata.name)[] | .metadata.name'
+```
+
 ## Get true/false on check of matching string contents
 ```
 jq -r '.spec.template.spec.containers[].image | contains("offending_thing")'
