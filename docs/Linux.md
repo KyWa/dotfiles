@@ -121,6 +121,11 @@ For nested items that contain `.` in their field must put items in quotes as see
 `n=1`
 `for i in {01..99};do mv $i $n;n=$(($n+1));done`
 
+### Iterate over multiple columns
+`cat /some/file | while read -a line;do`
+`  echo "${line[0]} is first column and ${line[1]} is the second column"`
+`done`
+
 #### VIM append/insert
 Highlight the lines you want with visual block mode `V` and then hit `:` and `:'<,'>` will be in command for you. Add whatever you are needing to this. Example: `:'<,'>s!^!*\ ` will add `* ` to the beginning of each highlighted line. Note there is a space after the `\` here.
 
