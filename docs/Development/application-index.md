@@ -9,4 +9,4 @@ Notes for application how-to, guides, gotchas, examples etc...
 * [MongoDB](MongoDB)
 * [Hashicorp Vault](Hashicorp-Vault)
 * [Terraform](Terraform)
-* [Kubernetes](Kubernetes)
+* [Kubernetes/OpenShift](Kubernetes)
