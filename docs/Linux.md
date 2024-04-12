@@ -92,14 +92,20 @@ For nested items that contain `.` in their field must put items in quotes as see
 ### Quickly get system IP
 `hostname -I | awk '{print $1}'` gets ip in clean format of machine
 
-#### Remove single line from crontab
+### Remove single line from crontab
 `crontab -u root -l | grep -v 'command in cron' | crontab -u root -`
 
-#### Get which thread a process is running on
+### Get which thread a process is running on
 `for i in $(pgrep process);do ps -mo pid,tid,fname,user,psr -p $i;done`
 
-#### Get heavy hitting processes
+### Get heavy hitting processes
 `ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10`
+
+### Get Defunct/Dead processes
+`top -b -n 1 | awk '{if (NR <=7) print; else if ($8 == "D") {print; count++} } END {print "Total status D: "count}'`
+
+### Get Zombie processes
+`top -b -n 1 | awk '{if (NR <=7) print; else if ($8 == "Z") {print; count++} } END {print "Total status D: "count}'`
 
 #### Get System Age
 `tune2fs -l /dev/sda1 | grep created`

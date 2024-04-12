@@ -7,3 +7,4 @@ Notes on Syntax, cool blocks, ideas etc..
 * [Powershell](Powershell)
 * [Python](Python)
 * [BASH](BASH)
+* [PostgreSQL](PostgreSQL)
