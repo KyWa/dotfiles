@@ -68,3 +68,9 @@ oc patch deploy NAME -p '{"spec":{"template":{"spec":{"containers":[{"name":"'${
 ## ImageStream
 oc patch is NAME -p '{"spec":{"tags":[{"name":"'${TAG_NAME}'","from":{"name":"'${NEW_IMG}'"}}]}}'
 ```
+
+# Pods
+## Get all Pods that contain a PersistentVolume
+```
+jq -r '.items[] | select(.spec.volumes[] | to_entries[].value.claimName?)' | jq -rs 'unique_by(.metadata.name)[] | .metadata.name'
+```
