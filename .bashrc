@@ -99,6 +99,10 @@ viewcert() {
     openssl crl2pkcs7 -nocrl -certfile $1 | openssl pkcs7 -print_certs -text -noout | less
 }
 
+getcert () {
+  openssl s_client -showcerts -servername $1 -connect $1:443 </dev/null 2>/dev/null | openssl x509 -text > $1.pem
+}
+
 makegif() {
   cd $HOME/Pictures/mineOps
   docker run --rm -v $PWD:/data asciinema/asciicast2gif -s .75 $1.cast $1.gif
