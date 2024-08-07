@@ -166,3 +166,8 @@ venv() {
     source venv/bin/activate
     python3 -m pip install -r requirements.txt
 }
+clean-olm (){
+  oc delete -n openshift-marketplace `oc get job -n openshift-marketplace -o name`
+  oc delete -n openshift-marketplace `oc get pod -n openshift-marketplace -o name`
+  oc delete -n openshift-operator-lifecycle-manager `oc get pod -n openshift-operator-lifecycle-manager -o name`
+}

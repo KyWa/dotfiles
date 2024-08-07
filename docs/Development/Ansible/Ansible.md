@@ -63,6 +63,28 @@ inventory
 - - - - secrets.yaml # A plain text file with encrypted values like above
 ```
 
+## Useful Jinja2 Things
+
+```
+# The main focus of this is the if not loop.last section which will only do something if its not the last item in the loop (for things like comma separated values)
+{
+  "auths": {
+{% for item in SOME_VAR.results %}
+    "{{ REGISTRY_HOSTNAME }}/{{ item.item }}": {
+      "username": "{{ item.name }}",
+      "password": "{{ item.token }}",
+      "auth": "{{ (item.name + ':' + item.token) | b64encode }}",
+      "email": ""
+{%- if not loop.last %}
+    },
+{% else %}
+    }
+{% endif %}
+{% endfor %}
+  }
+}
+```
+
 # Misc Notes
 
 `handler`'s work if they are called by a `notify` inside a task. `notify` will only call if a change is made during its run.
@@ -81,3 +103,4 @@ var="{{ lookup( 'env', 'HOME') }}"
 * `always` - Defines the tasks that will always run independently of the success or failure of tasks defined in the block and rescue clauses.
 
 You cannot use `{{ inventory_dir }}` if targeting localhost as your host gorup.
+
