@@ -1,5 +1,14 @@
 # Ceph / ODF Commands
 
+## NooBaa
+To cleanup NooBaa you must allow it to be removed:
+
+```sh
+oc patch -n openshift-storage noobaa noobaa --type='merge' -p '{"spec":{"cleanupPolicy":{"allowNoobaaDeletion":true}}}'
+oc patch -n openshift-storage noobaas/noobaa --type=merge -p '{"metadata": {"finalizers":null}}'
+oc delete -n openshift-storage noobaas.noobaa.io  --all
+```
+
 ## Clones
 
 ### Cancel all clones

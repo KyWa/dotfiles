@@ -15,12 +15,6 @@ esac
 
 ## SED
 
-### Mac sed
-
-`-i` expections an extension argument.
-
-`sed -i '' -e 's/mineops-0/mineops-1/g`
-
-### Delete a thing
-
-`sed -i '/thingtodelete/d' file`
+### Mac/BSD sed
+`sed -i '' -e 's/mineops-0/mineops-1/g' file`
+`sed -i '' -e '/thingtodelete/d' file`

@@ -11,3 +11,4 @@ Notes for application how-to, guides, gotchas, examples etc...
 * [Terraform](Terraform)
 * [Kubernetes/OpenShift](Kubernetes)
 * [Ceph/ODF](Ceph)
+* [VMWare/vSphere](VMWare)
