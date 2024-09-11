@@ -9,6 +9,13 @@ oc patch -n openshift-storage noobaas/noobaa --type=merge -p '{"metadata": {"fin
 oc delete -n openshift-storage noobaas.noobaa.io  --all
 ```
 
+## Cleanup Failed Clones
+```sh
+ceph fs subvolume ls ocs-storagecluster-cephfilesystem csi --format json | jq '.[] | .name' | cut -f 2 -d '"' > /tmp/subvolumes
+for i in `cat /tmp/subvolumes`;do ceph fs subvolume info --group-name=csi ocs-storagecluster-cephfilesystem $i --format=json >> /tmp/info;done
+for i in `cat /tmp/info | jq -r 'select(.type ==  "clone") .path' | cut -d "/" -f 4`;do ceph fs subvolume rm ocs-storagecluster-cephfilesystem --group-name csi $i;done
+```
+
 ## Clones
 
 ### Cancel all clones
