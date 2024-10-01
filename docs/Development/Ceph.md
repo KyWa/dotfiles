@@ -39,7 +39,8 @@ ceph fs subvolume snapshot rm ocs-storagecluster-cephfilesystem --group-name csi
 ```
 
 ```sh
-for i in `cat to_be_removed`;do echo "Deleteing $i";ceph fs subvolume rm ocs-storagecluster-cephfilesystem --group-name csi $i;done
+for i in `ceph fs subvolume ls ocs-storagecluster-cephfilesystem csi --format json | jq '.[] | .name' | cut -f 2 -d '"'`;do ceph fs subvolume info --group-name csi ocs-storagecluster-cephfilesystem $i --format=json 2> /tmp/to_be_deleted; done
+for i in `cat /tmp/to_be_deleted | awk '{print $4}'`;do echo "Deleteing $i";ceph fs subvolume rm ocs-storagecluster-cephfilesystem --group-name csi $i --force; done
 ```
 
 ## List all CephFS Snapshots
