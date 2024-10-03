@@ -164,5 +164,5 @@ clean-olm(){
   oc delete -n openshift-operator-lifecycle-manager `oc get pod -n openshift-operator-lifecycle-manager -o name`
 }
 macdns(){
-  sudo killall -HUP mDNSResponder`
+  sudo killall -HUP mDNSResponder
 }
