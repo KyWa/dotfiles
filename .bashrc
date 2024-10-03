@@ -34,7 +34,6 @@ fi
 
 # quality of life things
 alias grep='grep --color=auto'
-alias macdns=`sudo killall -HUP mDNSResponder`
 
 # better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
@@ -88,15 +87,15 @@ mcd(){
     cd $1
 }
 
-viewcert() {
+viewcert(){
     openssl crl2pkcs7 -nocrl -certfile $1 | openssl pkcs7 -print_certs -text -noout | less
 }
 
-getcert () {
+getcert (){
   openssl s_client -showcerts -servername $1 -connect $1:443 </dev/null 2>/dev/null | openssl x509 -text > $1.pem
 }
 
-makegif() {
+makegif(){
   cd $HOME/Pictures/mineOps
   docker run --rm -v $PWD:/data asciinema/asciicast2gif -s .75 $1.cast $1.gif
 }
@@ -112,7 +111,7 @@ find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
 }
 
 # Get all objects in a namespace by first getting all api objects that can be gathered
-ocga() {
+ocga(){
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
     echo "Resource:" $i
     kubectl -n ${1} get --ignore-not-found ${i}
@@ -120,11 +119,11 @@ ocga() {
 }
 
 # Docker handy cleanup
-drm() {
+drm(){
   docker rm $(docker ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')
 }
 
-dclean() {
+dclean(){
   isk8s=$(docker ps | grep k8s | grep -v CONTAINER)
   if [[ -z $isk8s ]];then
     docker stop $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
@@ -133,7 +132,7 @@ dclean() {
 }
 
 # Notes
-engnotes() {
+engnotes(){
     NUMBER=$(date | awk '{print $2 " " $3}')
     cd ~/engagements
     git add -A .
@@ -142,7 +141,7 @@ engnotes() {
     cd ~
 }
 
-newgit() {
+newgit(){
     cd ~/Working/kywa/
     if [[ -d repo-template ]];then
         cp -r repo-template $1
@@ -154,13 +153,16 @@ newgit() {
         cd $1 && git init
     fi
 }
-venv() {
+venv(){
     python3 -m venv venv
     source venv/bin/activate
     python3 -m pip install -r requirements.txt
 }
-clean-olm (){
+clean-olm(){
   oc delete -n openshift-marketplace `oc get job -n openshift-marketplace -o name`
   oc delete -n openshift-marketplace `oc get pod -n openshift-marketplace -o name`
   oc delete -n openshift-operator-lifecycle-manager `oc get pod -n openshift-operator-lifecycle-manager -o name`
+}
+macdns(){
+  sudo killall -HUP mDNSResponder`
 }
