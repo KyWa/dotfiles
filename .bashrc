@@ -32,16 +32,9 @@ else
     alias python="/usr/local/bin/python"
 fi
 
-if [ -f /mnt/c/Users ];then
-    alias docker="sudo docker"
-fi
-
-if [ -f /etc/redhat-release ];then
-    alias docker="podman"
-fi
-
 # quality of life things
 alias grep='grep --color=auto'
+alias macdns=`sudo killall -HUP mDNSResponder`
 
 # better process checking
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
