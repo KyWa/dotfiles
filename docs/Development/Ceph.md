@@ -1,5 +1,16 @@
 # Ceph / ODF Commands
 
+## Change "fullness" ratios to allow functionality to debug
+```sh
+ceph osd set-nearfull-ratio .90
+ceph osd set-backfillfull-ratio .95
+ceph osd set-full-ratio .97
+
+ceph osd set-nearfull-ratio .85
+ceph osd set-backfillfull-ratio .90
+ceph osd set-full-ratio .95
+```
+
 ## NooBaa
 To cleanup NooBaa you must allow it to be removed:
 
