@@ -14,6 +14,7 @@ test -f ~/.git-completion.bash && . $_
 source ~/.k8sprompt.sh
 export PS1='\[\e[33m\]\W\[\e[m\]\[\e[36m\] $(k8s_context)\[\e[m\] > '
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$PATH:/usr/local/go/bin/:~/bin:~/.local/bin
 export TERM="xterm-256color"
 export GOPATH=$HOME/Working/golibs
