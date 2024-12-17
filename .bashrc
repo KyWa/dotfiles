@@ -141,19 +141,6 @@ engnotes(){
     git push
     cd ~
 }
-
-newgit(){
-    cd ~/Working/kywa/
-    if [[ -d repo-template ]];then
-        cp -r repo-template $1
-        rm -rf $1/.git
-        cd $1 && git init
-    else
-        git clone https://github.com/KyWa/repo-template $1
-        rm -rf $1/.git
-        cd $1 && git init
-    fi
-}
 venv(){
     python3 -m venv venv
     source venv/bin/activate
@@ -166,4 +153,9 @@ clean-olm(){
 }
 macdns(){
   sudo killall -HUP mDNSResponder
+}
+clean-rs(){
+  for i in `oc get rs -o json | jq -r '.items[] | select(.spec.replicas == 0) .metadata.name'`;do
+    oc delete rs $i
+  done
 }
