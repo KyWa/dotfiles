@@ -18,6 +18,7 @@
 ## AlertManager
 ### Get Firing Alerts in openshift-monitoring
 `oc -n openshift-monitoring exec -c prometheus prometheus-k8s-0 -- curl -s   'http://localhost:9090/api/v1/alerts'`
+`oc get prometheusrules -A -o jsonpath='{.items[*].spec.groups[].rules[]}'`
 
 ### Get Firing Alerts in openshift-user-workload-monitoring
 `oc exec -c alertmanager alertmanager-user-workload-0 -- curl -s 'http://localhost:9093/api/v1/alerts'`
