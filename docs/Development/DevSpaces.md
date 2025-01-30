@@ -6,6 +6,26 @@ With GitHub CoPilot being a unique Microsoft owned extension, you cannot install
 * [Copilot](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/GitHub/vsextensions/copilot/1.221.1043/vspackage)
 * [Copilot Chat](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/GitHub/vsextensions/copilot-chat/0.19.2024080501/vspackage)
 
+### Set as Trusted Extensions
+Add the following `ConfigMap` to tell your DevWorkspace that the extensions are trusted so they can be authorized:
+
+```yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: copilot-extensions
+  namespace: openshift-operators
+  labels:
+    controller.devfile.io/mount-to-devworkspace: 'true'
+    controller.devfile.io/watch-configmap: 'true'
+  annotations:
+    controller.devfile.io/mount-as: env
+data:
+  VSCODE_TRUSTED_EXTENSIONS: 'github.copilot,github.copilot-chat'
+```
+
+### Extension Installaion
 ```sh
 curl -o - https://marketplace.visualstudio.com/_apis/public/gallery/publishers/GitHub/vsextensions/copilot-chat/0.19.2024080501/vspackage | gunzip > chat.vsix
 curl -o - https://marketplace.visualstudio.com/_apis/public/gallery/publishers/GitHub/vsextensions/copilot/1.221.1043/vspackage | gunzip > ghp.vsix
@@ -14,6 +34,9 @@ code-oss --install-extension chat.vsix
 code-oss --install-extension ghp.vsix
 ```
 
+You will also need to run the following command to get authentication going: `GitHub: Device Authentication`.
+
+### Debugging Testing
 Logging out and back in does get it to a point where you can then sign in with GitHub Copilot Chat which then allows the login and you can then "Grant access to account from GitHub Copilot Chat", which does nothing and still results in the following even adding a GitHub Oauth secret into the `CheCluster` (which made no difference):
 
 ```
