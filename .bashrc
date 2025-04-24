@@ -14,9 +14,6 @@ test -f ~/.git-completion.bash && . $_
 source ~/.k8sprompt.sh
 export PS1='\[\e[33m\]\W\[\e[m\]\[\e[36m\] $(k8s_context)\[\e[m\] > '
 
-if [ -f /mnt/c/Program\ Files/RedHat/Podman/podman.exe ];then
-    alias podman="/mnt/c/Program\ Files/RedHat/Podman/podman.exe"
-fi
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$PATH:/usr/local/go/bin/:~/bin:~/.local/bin
@@ -27,7 +24,7 @@ export EDITOR="vim"
 export IFS=`echo -en "\n\b"`
 
 # Aliases
-# mac specific checks
+# OSX specific checks
 if [ -f /etc/os-release ];then
     # if on main system add in color
     alias ls='ls -Fh --color=auto'
@@ -35,6 +32,14 @@ else
     # if on macbook don't (throws errors)    
     alias ls='ls -FhG'
     alias python="/usr/local/bin/python"
+fi
+
+# WSL specific checks
+if [ -f /mnt/c/Program\ Files/RedHat/Podman/podman.exe ];then
+    alias podman="/mnt/c/Program\ Files/RedHat/Podman/podman.exe"
+    export WORKDIR="/mnt/c/Users/unixi/Working/"
+else
+    export WORKDIR="~/Working"
 fi
 
 # quality of life things
@@ -54,7 +59,7 @@ alias avv="ansible-vault view --vault-password-file=~/.vault-pass"
 alias getip='curl http://ipecho.net/plain;echo'
 
 # Container things
-alias genv='podman run -it -v `PWD`:/opt/app-root/src registry.access.redhat.com/ubi9/go-toolset:latest /bin/bash'
+alias genv='podman run -it -v $WORKDIR/kywa/kywa-learn/golang:/opt/app-root/src quay.io/kywa/goenv:latest /bin/bash'
 alias dps='podman ps -a'
 
 # Kubernetes/OpenShift
