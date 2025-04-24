@@ -53,10 +53,8 @@ alias avv="ansible-vault view --vault-password-file=~/.vault-pass"
 # get pub IP
 alias getip='curl http://ipecho.net/plain;echo'
 
-# Docker things
-alias aenv='podman run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansible-env:latest /bin/bash'
-alias genv='podman run -it -v `PWD`:/work quay.io/kywa/go-env:latest /bin/bash'
-alias kcode='podman run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:latest'
+# Container things
+alias genv='podman run -it -v `PWD`:/opt/app-root/src registry.access.redhat.com/ubi9/go-toolset:latest /bin/bash'
 alias dps='podman ps -a'
 
 # Kubernetes/OpenShift
@@ -93,7 +91,7 @@ mcd(){
 }
 
 viewcert(){
-    openssl crl2pkcs7 -nocrl -certfile $1 | openssl pkcs7 -print_certs -text -noout | less
+  openssl crl2pkcs7 -nocrl -certfile $1 | openssl pkcs7 -print_certs -text -noout | less
 }
 
 getcert (){
@@ -107,14 +105,15 @@ makegif(){
 
 # clear screen because i"m lazy
 cls(){
-    clear
+  clear
 }
 
 # Get all files in a dir and list their extensions (if present)
 ext(){
-find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
+  find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
 }
 
+# Kubernetes/OpenShift
 # Get all objects in a namespace by first getting all api objects that can be gathered
 ocga(){
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
@@ -122,8 +121,18 @@ ocga(){
     kubectl -n ${1} get --ignore-not-found ${i}
   done
 }
+clean-olm(){
+  oc delete -n openshift-marketplace `oc get job -n openshift-marketplace -o name`
+  oc delete -n openshift-marketplace `oc get pod -n openshift-marketplace -o name`
+  oc delete -n openshift-operator-lifecycle-manager `oc get pod -n openshift-operator-lifecycle-manager -o name`
+}
+clean-rs(){
+  for i in `oc get rs -o json | jq -r '.items[] | select(.spec.replicas == 0) .metadata.name'`;do
+    oc delete rs $i
+  done
+}
 
-# Docker handy cleanup
+# Container handy cleanup
 drm(){
   podman rm $(podman ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')
 }
@@ -138,30 +147,24 @@ dclean(){
 
 # Notes
 engnotes(){
-    NUMBER=$(date | awk '{print $2 " " $3}')
-    cd ~/engagements
-    git add -A .
-    git commit -m "$NUMBER notes"
-    git push
-    cd ~
+  NUMBER=$(date | awk '{print $2 " " $3}')
+  cd ~/engagements
+  git add -A .
+  git commit -m "$NUMBER notes"
+  git push
+  cd ~
 }
+
+# Development
 venv(){
-    python3 -m venv $1
-    source $1/bin/activate
-    if [[ -f "./requirements.txt" ]];then
-      python3 -m pip install -r requirements.txt
-    fi
+  python3 -m venv $1
+  source $1/bin/activate
+  if [[ -f "./requirements.txt" ]];then
+    python3 -m pip install -r requirements.txt
+  fi
 }
-clean-olm(){
-  oc delete -n openshift-marketplace `oc get job -n openshift-marketplace -o name`
-  oc delete -n openshift-marketplace `oc get pod -n openshift-marketplace -o name`
-  oc delete -n openshift-operator-lifecycle-manager `oc get pod -n openshift-operator-lifecycle-manager -o name`
-}
+
+# Misc
 macdns(){
   sudo killall -HUP mDNSResponder
-}
-clean-rs(){
-  for i in `oc get rs -o json | jq -r '.items[] | select(.spec.replicas == 0) .metadata.name'`;do
-    oc delete rs $i
-  done
 }
