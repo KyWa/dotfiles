@@ -14,6 +14,10 @@ test -f ~/.git-completion.bash && . $_
 source ~/.k8sprompt.sh
 export PS1='\[\e[33m\]\W\[\e[m\]\[\e[36m\] $(k8s_context)\[\e[m\] > '
 
+if [ -f /mnt/c/Program\ Files/RedHat/Podman/podman.exe ];then
+    alias podman="/mnt/c/Program\ Files/RedHat/Podman/podman.exe"
+fi
+
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$PATH:/usr/local/go/bin/:~/bin:~/.local/bin
 export TERM="xterm-256color"
@@ -50,10 +54,10 @@ alias avv="ansible-vault view --vault-password-file=~/.vault-pass"
 alias getip='curl http://ipecho.net/plain;echo'
 
 # Docker things
-alias aenv='docker run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansible-env:latest /bin/bash'
-alias genv='docker run -it -v `PWD`:/work quay.io/kywa/go-env:latest /bin/bash'
-alias kcode='docker run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:latest'
-alias dps='docker ps -a'
+alias aenv='podman run -it -v `PWD`:/work -v ~/.ssh:/root/.ssh quay.io/kywa/ansible-env:latest /bin/bash'
+alias genv='podman run -it -v `PWD`:/work quay.io/kywa/go-env:latest /bin/bash'
+alias kcode='podman run -d -p 8080:8080 -e PASSWORD="CHANGEME" --name vscode -v /home/kwalker/.ssh/:/home/coder/.ssh -v ${PWD}:/home/coder quay.io/kywa/kcode:latest'
+alias dps='podman ps -a'
 
 # Kubernetes/OpenShift
 alias k='kubectl'
@@ -98,7 +102,7 @@ getcert (){
 
 makegif(){
   cd $HOME/Pictures/mineOps
-  docker run --rm -v $PWD:/data asciinema/asciicast2gif -s .75 $1.cast $1.gif
+  podman run --rm -v $PWD:/data asciinema/asciicast2gif -s .75 $1.cast $1.gif
 }
 
 # clear screen because i"m lazy
@@ -121,14 +125,14 @@ ocga(){
 
 # Docker handy cleanup
 drm(){
-  docker rm $(docker ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')
+  podman rm $(podman ps -a | grep Exited | grep -v CONTAINER |awk '{print $1}')
 }
 
 dclean(){
-  isk8s=$(docker ps | grep k8s | grep -v CONTAINER)
+  isk8s=$(podman ps | grep k8s | grep -v CONTAINER)
   if [[ -z $isk8s ]];then
-    docker stop $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
-    docker rm $(docker ps -a | grep -v CONTAINER | awk '{print $1}')
+    podman stop $(podman ps -a | grep -v CONTAINER | awk '{print $1}')
+    podman rm $(podman ps -a | grep -v CONTAINER | awk '{print $1}')
   fi
 }
 
