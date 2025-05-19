@@ -31,7 +31,7 @@ if [ -f /etc/os-release ];then
 else
     # if on macbook don't (throws errors)    
     alias ls='ls -FhG'
-    alias python="/usr/local/bin/python"
+#    alias python="/usr/local/bin/python"
 fi
 
 # WSL specific checks
