@@ -3,11 +3,13 @@
 ## Sections
 * [Data Types](golang/datatypes)
 * [Functions and Controls](golang/Functions)
+* [Packages](golang/Packages)
 
 ## Structure of a `go` application
 The file named `go.mod` declares the module path: the import path prefix for all packages within the module. The module contains the packages in the directory containing its `go.mod` file as well as subdirectories of that directory, up to the next subdirectory containing another `go.mod` file (if any).
 
 To build or run the application, you would do something like the following:
+
 ```go
 # Create a binary after the build
 go build path/to/files.go
