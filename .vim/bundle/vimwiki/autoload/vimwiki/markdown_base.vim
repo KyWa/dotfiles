@@ -4,14 +4,14 @@
 " Home: https://github.com/vimwiki/vimwiki/
 
 
-function! s:safesubstitute(text, search, replace, mode)
+function! s:safesubstitute(text, search, replace, mode) abort
   " Substitute regexp but do not interpret replace
   let escaped = escape(a:replace, '\&')
   return substitute(a:text, a:search, escaped, a:mode)
 endfunction
 
 
-function! vimwiki#markdown_base#scan_reflinks()
+function! vimwiki#markdown_base#scan_reflinks() abort
   let mkd_refs = {}
   " construct list of references using vimgrep
   try
@@ -25,7 +25,7 @@ function! vimwiki#markdown_base#scan_reflinks()
     let matchline = join(getline(d.lnum, min([d.lnum+1, line('$')])), ' ')
     let descr = matchstr(matchline, vimwiki#vars#get_syntaxlocal('rxMkdRefMatchDescr'))
     let url = matchstr(matchline, vimwiki#vars#get_syntaxlocal('rxMkdRefMatchUrl'))
-    if descr != '' && url != ''
+    if descr !=? '' && url !=? ''
       let mkd_refs[descr] = url
     endif
   endfor
@@ -34,9 +34,8 @@ function! vimwiki#markdown_base#scan_reflinks()
 endfunction
 
 
-" try markdown reference links
-function! vimwiki#markdown_base#open_reflink(link)
-  " echom "vimwiki#markdown_base#open_reflink"
+function! vimwiki#markdown_base#open_reflink(link) abort
+  " try markdown reference links
   let link = a:link
   let mkd_refs = vimwiki#vars#get_bufferlocal('markdown_refs')
   if has_key(mkd_refs, link)
@@ -49,7 +48,7 @@ function! vimwiki#markdown_base#open_reflink(link)
 endfunction
 
 
-function! s:normalize_link_syntax_n()
+function! s:normalize_link_syntax_n() abort
   let lnum = line('.')
 
   " try WikiIncl
@@ -97,54 +96,21 @@ function! s:normalize_link_syntax_n()
   " normalize_link_syntax_v
   let lnk = vimwiki#base#matchstr_at_cursor(vimwiki#vars#get_global('rxWord'))
   if !empty(lnk)
-    let sub = vimwiki#base#normalize_link_helper(lnk,
-          \ vimwiki#vars#get_global('rxWord'), '',
-          \ vimwiki#vars#get_syntaxlocal('Weblink1Template'))
+    if vimwiki#base#is_diary_file(expand('%:p'))
+      let sub = vimwiki#base#normalize_link_in_diary(lnk)
+    else
+      let sub = vimwiki#base#normalize_link_helper(lnk,
+            \ vimwiki#vars#get_global('rxWord'),
+            \ vimwiki#vars#get_global('rxWord'),
+            \ vimwiki#vars#get_syntaxlocal('Link1'))
+    endif
     call vimwiki#base#replacestr_at_cursor('\V'.lnk, sub)
     return
   endif
-
 endfunction
 
 
-function! s:normalize_link_syntax_v()
-  let lnum = line('.')
-  let sel_save = &selection
-  let &selection = "old"
-  let rv = @"
-  let rt = getregtype('"')
-  let done = 0
-
-  try
-    norm! gvy
-    let visual_selection = @"
-    let link = s:safesubstitute(vimwiki#vars#get_syntaxlocal('Weblink1Template'),
-          \ '__LinkUrl__', visual_selection, '')
-    let link = s:safesubstitute(link, '__LinkDescription__', visual_selection, '')
-
-    call setreg('"', substitute(link, '\n', '', ''), visualmode())
-
-    " paste result
-    norm! `>""pgvd
-
-  finally
-    call setreg('"', rv, rt)
-    let &selection = sel_save
-  endtry
-
+function! vimwiki#markdown_base#normalize_link() abort
+  " TODO mutualize with base
+  call s:normalize_link_syntax_n()
 endfunction
-
-
-function! vimwiki#markdown_base#normalize_link(is_visual_mode)
-  if 0
-    " Syntax-specific links
-  else
-    if !a:is_visual_mode
-      call s:normalize_link_syntax_n()
-    elseif line("'<") == line("'>")
-      " action undefined for multi-line visual mode selections
-      call s:normalize_link_syntax_v()
-    endif
-  endif
-endfunction
-
