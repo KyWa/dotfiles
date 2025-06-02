@@ -37,11 +37,10 @@ fi
 # WSL specific checks
 if [ -f /mnt/c/Program\ Files/RedHat/Podman/podman.exe ];then
     alias podman="/mnt/c/Program\ Files/RedHat/Podman/podman.exe"
-    export WORKDIR="/mnt/c/Users/unixi/Working/"
-else
-    export WORKDIR="~/Working"
+    export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/snap/bin:/usr/local/go/bin/:~/bin:~/.local/bin
 fi
 
+export WORKDIR="~/Working"
 # quality of life things
 alias grep='grep --color=auto'
 
