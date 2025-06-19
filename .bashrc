@@ -3,6 +3,13 @@ if [ -f /etc/bashrc ];then
     . /etc/bashrc
 fi
 
+### TODO LIST
+#if [ -f ~/.todo ] && [[ ! -z $(grep '[^[:space:]]' ~/.todo) ]] ; then
+#    echo "You've got stuff TODO"
+#    echo "---------------------"
+#    cat ~/.todo
+#fi
+
 # General fun
 umask 002
 set -o vi
@@ -77,10 +84,7 @@ alias gc='git commit'
 # Use bat instead of cat
 if [ -x "$(command -v bat)" ];then
     alias cat='bat'
-fi
-
-# Use bat instead of cat (Debian systems)
-if [ -x "$(command -v batcat)" ];then
+elif [ -x "$(command -v batcat)" ];then
     alias cat='batcat'
 fi
 
