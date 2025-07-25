@@ -4,19 +4,16 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" vundle
 Plugin 'VundleVim/Vundle.vim'
-" vimwiki
 Plugin 'vimwiki/vimwiki'
-" GruvBox
 Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set showmatch
 set backspace=indent,eol,start
 set nowrap
@@ -35,11 +32,7 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-autocmd FileType yaml setlocal ai ts=2 sw=2 et
-autocmd FileType tf setlocal ai ts=2 sw=2 et
-
 colorscheme gruvbox
 set background=dark 
 
-" vimwiki/vimwiki
 let g:vimwiki_list = [{'path': '~/dotfiles/docs/', 'syntax': 'markdown', 'ext':'.md'},{'path': '~/engagements', 'syntax': 'markdown', 'ext':'.md'}]
