@@ -115,9 +115,9 @@ macdns(){
 ## Kubernetes/OpenShift
 ocga(){
   # Get all objects in a namespace by first getting all api objects that can be gathered
-  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+  for i in $(oc api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
     echo "Resource:" $i
-    kubectl -n ${1} get --ignore-not-found ${i}
+    oc -n ${1} get --ignore-not-found ${i}
   done
 }
 

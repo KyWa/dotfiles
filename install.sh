@@ -1,60 +1,44 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-## TODO - list of files and then iterate through versus this many individually written if statements
-# Check for existing Bashrc
-if [[ -f $HOME/.bashrc ]];then
-  mv $HOME/.bashrc $HOME/.bashrc.bak
-fi
-# Check for existing Vimrc
-if [[ -f $HOME/.vimrc ]];then
-  mv $HOME/.vimrc $HOME/.vimrc.bak
-fi
-# Check for existing Ansiblecfg
-if [[ -f $HOME/.ansible.cfg ]];then
-  mv $HOME/.ansible.cfg $HOME/.ansible.cfg.bak
-fi
-# Check for existing TMUX Config
-if [[ -f $HOME/.tmux.conf ]];then
-  mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
-fi
-# Check for existing bash_profile
-if [[ -f $HOME/.bash_profile ]];then
-  mv $HOME/.bash_profile $HOME/.bash_profile.bak
-fi
-# Check for existing k8s Prompt
-if [[ -f $HOME/.tmux.conf ]];then
-  mv $HOME/.k8sprompt.sh $HOME/.k8sprompt.sh.bak
-fi
+# Backup existing shell files and then link to this repository
+FILES=".ansible.cfg .bash_profile .bashrc .k8sprompt.sh .tmux.conf .vim .vimrc"
 
-## Check and setup for Mac OS
+for f in $FILES;do
+  if [[ -f $HOME/$f ]];then
+    mv $HOME/$f $HOME/$f.bak
+    ln -sv $PWD/$f $HOME/$f
+  fi
+done
+
+# Check and setup for Mac OS
 if [[ `uname` == "Darwin" ]];then
-  ./mac_setup.sh
-fi
+  echo "Would you like to setup a Mac OS?: y/n"
+  read mac_install
 
-# Create symlinks to ~/dotfiles
-ln -sv ~/dotfiles/.vimrc ~
-ln -sv ~/dotfiles/.vim ~
-ln -sv ~/dotfiles/.bashrc ~
-ln -sv ~/dotfiles/.bash_profile ~
-ln -sv ~/dotfiles/.tmux.conf ~
-ln -sv ~/dotfiles/.k8sprompt.sh ~
-ln -sv ~/dotfiles/.ansible.cfg ~
+  case $mac_install in
+    [yY][eE][sS][|[yY])
+      ./mac_setup.sh
+      ;;
+    [nN][oO]|[nN])
+      echo "Moving on. Don't forget to run ./mac_setup.sh at a later time"
+      ;;
+  esac
+fi
 
 # Get Git Bash Completion
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o $HOME/.git-completion.bash
 
 # Add KyWa repositories
-# Also assumes you pulled this repo with an ssh key
 echo "Would you like to add KyWa repositories?: y/n"
 read repo_install
 
 case $repo_install in
   [yY][eE][sS][|[yY])
-    mkdir -p ~/Working/kywa
-    cd ~/Working/kywa
-    git clone git@github.com:KyWa/KyWa.git
-    git clone git@github.com:KyWa/kywa-lab.git
-    git clone git@github.com:KyWa/kywa-learn.git
+    mkdir -p $HOME/Working/kywa
+    cd $HOME/Working/kywa
+    git clone git@github.com:KyWa/KyWa.git kywa
+    git clone git@github.com:KyWa/kywa-lab.git kywa-lab
+    git clone git@github.com:KyWa/kywa-learn.git kywa-learn
     echo "Repos cloned and all done!"
     ;;
   [nN][oO]|[nN])
@@ -62,5 +46,3 @@ case $repo_install in
     exit
     ;;
 esac
-
-source ~/.bash_profile
