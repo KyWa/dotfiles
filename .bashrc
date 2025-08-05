@@ -77,7 +77,7 @@ if [[ `uname` != "Darwin" ]];then
   alias ls='ls -Fh --color=auto'
 else
   alias ls='ls -FhG'
-  alias python="/usr/local/bin/python"
+  alias python="/usr/bin/python3"
 fi
 
 # Functions
