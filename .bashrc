@@ -16,7 +16,7 @@ source ~/.k8sprompt.sh
 set -o vi
 shopt -s cdspell
 complete -d cd
-compopt -o bashdefault cd
+type compopt &> /dev/null && compopt -o bashdefault cd
 umask 002
 
 # General Vars
