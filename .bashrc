@@ -141,7 +141,7 @@ engnotes(){
   cd $WORKDOCS
   git add -A .
   git commit -m "$NUMBER notes"
-  git push
+#  git push
   cd $OLDPWD
 }
 

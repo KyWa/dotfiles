@@ -11,6 +11,9 @@
 ### Approve `InstallPlan` via `oc patch`
 `oc patch installplan $(oc get installplan -n my-project-o=jsonpath='{.items[?(@.spec.approved==false)].metadata.name}') -n NAMESPACE --type merge --patch '{"spec":{"approved":true}}'`
 
+### Loop to Approve `InstallPlans` cluster wide
+`for i in $(oc get ip -A --no-headers=true | awk '{print $1}');do oc patch installplan $(oc get installplan -n $i -o=jsonpath='{.items[?(@.spec.approved==false)].metadata.name}') -n $i --type merge --patch '{"spec":{"approved":true}}';done`
+
 ## Misc Handy Commands
 ### Get Pods that aren't running and sort by age
 `oc get po --field-selector=status.phase!=Running --sort-by=.metadata.creationTimestamp`
