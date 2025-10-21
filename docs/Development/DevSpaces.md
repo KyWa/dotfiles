@@ -1,5 +1,8 @@
 # DevSpaces
 
+## Badge for a `README.md`
+[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://devspaces.example.com/#https://github.com/your-repo)
+
 ## GitHub CoPilot
 With GitHub CoPilot being a unique Microsoft owned extension, you cannot install it in DevSpaces when using the `open-vsx.org` plugin registry and need to download it manually and install with `code --install-extension /path/to/file.vsix`. To download the `vsix` files for GitHub CoPilot and CoPilot Chat, you currently have to essentially copy a link and replace a value with the needed version. Links below:
 
