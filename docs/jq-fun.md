@@ -1,3 +1,12 @@
+# General JQ
+## Add Data to existing object
+```
+### Standard adding
+jq '.object += {"foo":"bar"}'
+
+### From a JSON File
+jq --argjson data $(<parsed.json) '.auths += $data'
+```
 # BuildConfigs
 ## Get name of each offending_thing Deployment
 ```
@@ -6,11 +15,11 @@ jq -r '.items[] | select(.spec.strategy | to_entries[].value.from?.name) | .meta
 # Grabs the actual from field
 jq -r 'select(.spec.strategy | to_entries[0].value.from.name | contains("offending_thing")) | .metadata.name')
 ```
-# Identify offending_thing image
+## Identify offending_thing image
 ```
 jq -r '.spec.strategy | to_entries[0].value.from.name'
 ```
-# Verify BC type for patch to work
+## Verify BC type for patch to work
 ```
 jq -r '.spec.strategy | to_entries[0].key'
 ```
