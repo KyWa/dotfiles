@@ -66,7 +66,8 @@ alias oca='oc apply -f'
 alias oga='oc get all'
 alias oyam='oc get -o yaml'
 alias ojay='oc get -o json'
-alias occlean='oc delete po --field-selector=status.phase=Succeeded --field-selector=status.phase=Failed'
+alias occlean='oc delete po --field-selector=status.phase=Succeeded'
+alias evicted='oc delete po --field-selector=status.phase=Failed'
 
 ## Git
 alias gs='git status'
