@@ -17,6 +17,14 @@ Main control combo: `ctrl+b`. combo+command
 * `"` split window horizontally
 * `:` type command
 
+
+## vim
+### Remove trailing whitespace from file
+
+`:%s/\s\+$//`
+
+## misc
+
 ### boot into single user
 
 Edit the kernel line and add the following to the end: `rd.break`
@@ -144,3 +152,4 @@ Create/Update a user password using htpassword auth
 
 ### Base64 Encoding / Kube Secrets
 `base64 -w 0` will remove word wrap for longer strings
+
