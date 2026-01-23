@@ -81,6 +81,8 @@ else
   alias python="/usr/bin/python3"
 fi
 
+alias macfixperm=`xattr -d com.apple.quarantine`
+
 # Functions
 ## QoL and Handy
 mcd(){
