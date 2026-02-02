@@ -50,8 +50,8 @@ alias avv="ansible-vault view --vault-password-file=~/.vault-pass"
 
 ## Containers
 ### Set runtime
-if [ -f /mnt/c/Program\ Files/RedHat/Podman/podman.exe ];then
-  alias podman="/mnt/c/Program\ Files/RedHat/Podman/podman.exe"
+if [ -f /mnt/c/Users/unixi/AppData/Local/Programs/Podman/podman.exe ];then
+  alias podman="/mnt/c/Users/unixi/AppData/Local/Programs/Podman/podman.exe"
 fi
 alias dps='podman ps -a'
 
