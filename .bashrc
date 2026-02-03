@@ -79,9 +79,9 @@ if [[ `uname` != "Darwin" ]];then
 else
   alias ls='ls -FhG'
   alias python="/usr/bin/python3"
+  alias macfixperm=`xattr -d com.apple.quarantine`
 fi
 
-alias macfixperm=`xattr -d com.apple.quarantine`
 
 # Functions
 ## QoL and Handy
