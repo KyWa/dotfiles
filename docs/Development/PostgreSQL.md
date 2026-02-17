@@ -1,4 +1,10 @@
 # PostgreSQL Commands
+## `psql` Commands
+
+* `\l` - List Databases
+* `\c DB` - Connect/Use Database
+* `\dt` - List Tables
+
 ## Duplicate Key Issue and Resolution
 Originally noticed where an Organization in Quay would throw a 500 error when trying to do anything or even trying to `podman login` to that org.
 
